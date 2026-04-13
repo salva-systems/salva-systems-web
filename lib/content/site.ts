@@ -161,6 +161,7 @@ type LocaleContent = {
       message: string;
       submit: string;
       success: string;
+      continueWhatsapp: string;
       validation: {
         name: string;
         email: string;
@@ -523,6 +524,7 @@ const content: Record<Locale, LocaleContent> = {
         message: "Objetivo y contexto",
         submit: "Enviar solicitud",
         success: "Recibimos tu información. Te contactaremos en menos de 24 horas.",
+        continueWhatsapp: "Continuar en WhatsApp",
         validation: {
           name: "Indica tu nombre",
           email: "Introduce un correo válido",
@@ -882,6 +884,7 @@ const content: Record<Locale, LocaleContent> = {
         message: "Goal and context",
         submit: "Send request",
         success: "Thanks. We received your request and will contact you soon.",
+        continueWhatsapp: "Continue on WhatsApp",
         validation: {
           name: "Please provide your name",
           email: "Please provide a valid email",

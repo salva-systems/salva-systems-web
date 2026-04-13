@@ -19,6 +19,7 @@ type ContactCopy = {
   message: string;
   submit: string;
   success: string;
+  continueWhatsapp: string;
   validation: {
     name: string;
     email: string;
@@ -115,7 +116,7 @@ export function ContactForm({ copy }: ContactFormProps) {
               </p>
               <Button asChild variant="outline" className="hover:border-primary/45 hover:bg-primary/5">
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
-                  Continuar en WhatsApp
+                  {copy.continueWhatsapp}
                 </a>
               </Button>
             </div>

@@ -1,5 +1,6 @@
 const WHATSAPP_NUMBER = "528333674769";
-const WHATSAPP_MESSAGE_ENCODED = "Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
+const WHATSAPP_MESSAGE = "Hola, quiero analizar mi negocio con Salva Systems";
+const WHATSAPP_MESSAGE_ENCODED = encodeURIComponent(WHATSAPP_MESSAGE).replace("%2C", ",");
 
 export const DEFAULT_LOCALE = "es" as const;
 export const SUPPORTED_LOCALES = ["es", "en"] as const;
