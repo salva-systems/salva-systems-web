@@ -13,7 +13,10 @@ import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 
 const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
+const LOGO_SRC = "/brand/logo-horizontal-white.png";
+// Scroll distance (px) before increasing header opacity/clarity.
 const SCROLL_THRESHOLD = 14;
+// Slide offsets (px) for mobile menu entry/exit.
 const MOBILE_MENU_OFFSET_X = 18;
 const MOBILE_MENU_OFFSET_Y = -6;
 
@@ -91,7 +94,7 @@ export function SiteHeader() {
       <Container className="relative flex h-[4.5rem] items-center justify-between gap-4">
         <Link href="/" className="inline-flex items-center py-1" aria-label="Salva Systems inicio">
           <Image
-            src="/brand/logo-horizontal-white.png"
+            src={LOGO_SRC}
             alt="Salva Systems"
             width={138}
             height={28}
