@@ -14,9 +14,12 @@ import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
 const LOGO_SRC = "/brand/logo-horizontal-white.png";
+// Keep this compact desktop lockup ratio for a precise/premium header presence.
+const LOGO_WIDTH = 138;
+const LOGO_HEIGHT = 28;
 const WHATSAPP_PHONE_DISPLAY = "+52 833 367 4769";
 // Scroll distance (px) before increasing header opacity/clarity.
-const SCROLL_THRESHOLD = 14;
+const SCROLL_OPACITY_THRESHOLD = 14;
 const HEADER_BLUR_DEFAULT = "blur(10px)";
 const HEADER_BLUR_SCROLLED = "blur(14px)";
 // Slide offsets (px) for mobile menu entry/exit.
@@ -73,7 +76,7 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
+    const onScroll = () => setIsScrolled(window.scrollY > SCROLL_OPACITY_THRESHOLD);
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -84,7 +87,7 @@ export function SiteHeader() {
   return (
     <motion.header
       className={clsx(
-        "sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300",
+        "sticky top-0 z-50 border-b transition-colors duration-300",
         isScrolled
           ? "border-primary/20 bg-background/90"
           : "border-border/35 bg-background/68",
@@ -99,8 +102,8 @@ export function SiteHeader() {
           <Image
             src={LOGO_SRC}
             alt="Salva Systems"
-            width={138}
-            height={28}
+            width={LOGO_WIDTH}
+            height={LOGO_HEIGHT}
             priority
             className="h-6 w-auto sm:h-7"
           />
