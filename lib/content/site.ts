@@ -403,9 +403,9 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     technical: {
-      headline: "Base técnica preparada para crecer",
+      headline: "Cómo construimos sistemas digitales",
       intro:
-        "Nuestras decisiones de arquitectura priorizan mantenibilidad, seguridad y velocidad de entrega.",
+        "Esta sección está pensada para perfiles técnicos que quieren entender cómo trabajamos realmente.",
       pillars: [
         {
           title: "App Router y Server Components",
@@ -709,9 +709,9 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     technical: {
-      headline: "Technical foundation ready to scale",
+      headline: "How we build digital systems",
       intro:
-        "Our architecture decisions prioritize maintainability, security, and delivery speed.",
+        "This section is designed for technical profiles who want to understand how we actually work.",
       pillars: [
         {
           title: "App Router and Server Components",
