@@ -1,18 +1,10 @@
 import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
+import { MARKETING_NAV_ITEMS, MARKETING_SOLUTIONS } from "@/lib/constants/layout";
 import { COMPANY } from "@/lib/constants/site";
 
 export function SiteFooter() {
-  const navigation = [
-    { href: "/services", label: "Servicios" },
-    { href: "/cases", label: "Casos" },
-    { href: "/team", label: "Equipo" },
-    { href: "/technical", label: "Technical" },
-    { href: "/faq", label: "FAQ" },
-  ];
-  const solutions = ["Consultoría tecnológica", "Automatización operativa", "Plataformas web"];
-
   return (
     <footer className="relative border-t border-border/35 bg-surface/55 backdrop-blur-xl">
       <Container className="grid gap-10 py-14 md:grid-cols-2 lg:grid-cols-4">
@@ -26,7 +18,7 @@ export function SiteFooter() {
         <div className="space-y-3 text-small">
           <p className="font-medium text-foreground">Navegación</p>
           <ul className="space-y-2 text-muted-foreground">
-            {navigation.map((item) => (
+            {MARKETING_NAV_ITEMS.map((item) => (
               <li key={item.href}>
                 <Link className="transition-colors hover:text-primary-strong" href={item.href}>
                   {item.label}
@@ -39,7 +31,7 @@ export function SiteFooter() {
         <div className="space-y-3 text-small">
           <p className="font-medium text-foreground">Soluciones</p>
           <ul className="space-y-2 text-muted-foreground">
-            {solutions.map((item) => (
+            {MARKETING_SOLUTIONS.map((item) => (
               <li key={item}>{item}</li>
             ))}
           </ul>

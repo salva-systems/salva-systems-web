@@ -6,15 +6,8 @@ import { useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
+import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 import { COMPANY } from "@/lib/constants/site";
-
-const NAV_ITEMS = [
-  { href: "/services", label: "Servicios" },
-  { href: "/cases", label: "Casos" },
-  { href: "/team", label: "Equipo" },
-  { href: "/technical", label: "Technical" },
-  { href: "/faq", label: "FAQ" },
-] as const;
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
@@ -27,7 +20,7 @@ export function SiteHeader() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-small text-muted-foreground lg:flex">
-          {NAV_ITEMS.map((item) => (
+          {MARKETING_NAV_ITEMS.map((item) => (
             <Link key={item.href} href={item.href} className="transition-colors hover:text-primary-strong">
               {item.label}
             </Link>
@@ -58,7 +51,7 @@ export function SiteHeader() {
         {isOpen ? (
           <div className="glass-card absolute left-6 right-6 top-[4.5rem] rounded-xl p-4 md:hidden">
             <nav className="flex flex-col gap-1">
-              {NAV_ITEMS.map((item) => (
+              {MARKETING_NAV_ITEMS.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
