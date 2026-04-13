@@ -1,10 +1,10 @@
 # Salva Systems Web
 
-Sitio corporativo en Next.js 14 con App Router, TypeScript estricto y arquitectura modular para marketing y captación.
+Sitio corporativo en Next.js 15 con App Router, TypeScript estricto y arquitectura modular para marketing y captación.
 
 ## Stack
 
-- Next.js 14 (App Router)
+- Next.js 15 (App Router)
 - TypeScript estricto
 - Tailwind CSS
 - shadcn/ui (estructura y primitivas UI)
