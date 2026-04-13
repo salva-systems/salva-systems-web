@@ -12,6 +12,13 @@ type ServiceItem = {
   description: string;
 };
 
+type SolutionLevel = {
+  title: string;
+  solves: string;
+  includes: string;
+  forWho: string;
+};
+
 type CaseItem = {
   title: string;
   impact: string;
@@ -78,6 +85,11 @@ type LocaleContent = {
     headline: string;
     intro: string;
     items: ServiceItem[];
+  };
+  solutionLevels: {
+    headline: string;
+    intro: string;
+    items: SolutionLevel[];
   };
   cases: {
     headline: string;
@@ -216,6 +228,37 @@ const content: Record<Locale, LocaleContent> = {
           title: "Gobierno y observabilidad",
           description:
             "Métricas, alertado y prácticas de calidad para mantener SLA y trazabilidad en producción.",
+        },
+      ],
+    },
+    solutionLevels: {
+      headline: "Niveles de solución según tu etapa",
+      intro:
+        "Cada nivel organiza tu operación con más estructura. Empezamos donde estás hoy y avanzamos con claridad.",
+      items: [
+        {
+          title: "Presencia Digital",
+          solves: "Te da una base profesional para comunicar qué haces, generar confianza y captar oportunidades.",
+          includes:
+            "Sitio web orientado a conversión, mensaje claro de oferta, formularios de contacto y analítica básica.",
+          forWho:
+            "Negocios que necesitan una presencia sólida para dejar de depender solo de referencias o mensajes sueltos.",
+        },
+        {
+          title: "Sistema Operativo",
+          solves: "Ordena la operación diaria para que el trabajo no dependa de Excel, WhatsApp y seguimiento manual.",
+          includes:
+            "Flujos de trabajo centralizados, panel operativo, trazabilidad de estados e integraciones clave.",
+          forWho:
+            "Equipos con volumen creciente que necesitan control, menos retrabajo y procesos consistentes.",
+        },
+        {
+          title: "Sistema de Crecimiento",
+          solves: "Convierte la operación en una plataforma lista para escalar con decisiones basadas en datos.",
+          includes:
+            "Automatizaciones avanzadas, métricas de rendimiento, reportes accionables y mejora continua.",
+          forWho:
+            "Empresas que ya operan con base digital y quieren acelerar crecimiento con previsibilidad.",
         },
       ],
     },
@@ -423,6 +466,40 @@ const content: Record<Locale, LocaleContent> = {
           title: "Governance and observability",
           description:
             "Metrics, alerting, and quality controls to sustain SLA commitments in production.",
+        },
+      ],
+    },
+    solutionLevels: {
+      headline: "Solution levels by business stage",
+      intro:
+        "Each level adds clearer structure to operations. We start from your current stage and build forward.",
+      items: [
+        {
+          title: "Digital Presence",
+          solves:
+            "Creates a professional base to communicate your offer clearly, build trust, and capture opportunities.",
+          includes:
+            "Conversion-focused website, clear value messaging, contact flows, and baseline analytics.",
+          forWho:
+            "Teams that need a solid online presence to stop relying only on referrals and scattered chats.",
+        },
+        {
+          title: "Operating System",
+          solves:
+            "Organizes day-to-day execution so operations no longer depend on spreadsheets, chat threads, and manual follow-up.",
+          includes:
+            "Centralized workflows, operational dashboard, status traceability, and key integrations.",
+          forWho:
+            "Growing teams that need control, less rework, and consistent execution across people.",
+        },
+        {
+          title: "Growth System",
+          solves:
+            "Turns operations into a scalable system where decisions are guided by reliable performance data.",
+          includes:
+            "Advanced automation, performance metrics, actionable reporting, and continuous optimization.",
+          forWho:
+            "Companies with a digital foundation that want predictable and faster growth.",
         },
       ],
     },
