@@ -44,9 +44,11 @@ type LocaleContent = {
   home: {
     eyebrow: string;
     title: string;
-    description: string;
+    subheadline: string;
+    support: string;
     primaryCta: string;
     secondaryCta: string;
+    trust: string;
   };
   services: {
     headline: string;
@@ -113,12 +115,15 @@ const content: Record<Locale, LocaleContent> = {
       { href: "/contact", label: "Contacto" },
     ],
     home: {
-      eyebrow: "Arquitectura, producto y operaciones en una sola célula",
-      title: "Construimos sistemas web resilientes para operaciones críticas",
-      description:
-        "Diseñamos, implementamos y operamos plataformas Next.js y servicios conectados con enfoque en rendimiento, seguridad y continuidad.",
-      primaryCta: "Solicitar diagnóstico",
-      secondaryCta: "Ver casos reales",
+      eyebrow: "Para negocios que ya venden, pero quieren operar mejor",
+      title: "Tu negocio no necesita más herramientas.\nNecesita un sistema.",
+      subheadline:
+        "Diseñamos e implementamos sistemas digitales que organizan tu operación, automatizan procesos y te dan control real sobre tu negocio.",
+      support:
+        "Desde una página web bien hecha hasta sistemas completos con datos, automatización y seguimiento. Todo conectado.",
+      primaryCta: "Analizar mi negocio",
+      secondaryCta: "Hablar por WhatsApp",
+      trust: "Basado en proyectos reales · Trabajo directo · Enfoque práctico",
     },
     services: {
       headline: "Servicios para acelerar entrega sin deuda técnica",
@@ -280,10 +285,13 @@ const content: Record<Locale, LocaleContent> = {
     home: {
       eyebrow: "Architecture, product, and operations in one delivery unit",
       title: "We build resilient web systems for mission-critical operations",
-      description:
+      subheadline:
         "We design, implement, and operate Next.js platforms and connected services with strong performance and reliability standards.",
+      support:
+        "From a high-performing website to full systems with data, automation, and follow-up workflows. Everything connected.",
       primaryCta: "Request assessment",
-      secondaryCta: "See case studies",
+      secondaryCta: "Chat on WhatsApp",
+      trust: "Based on real projects · Direct collaboration · Practical execution",
     },
     services: {
       headline: "Services that increase delivery speed without technical debt",
