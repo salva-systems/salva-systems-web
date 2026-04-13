@@ -31,6 +31,7 @@ export const metadata: Metadata = {
     description: "Consultoria tecnologica, automatizacion y sistemas digitales.",
     images: ["/og/home-og.png"],
   },
+
   title: {
     default: content.seo.siteTitle,
     template: content.seo.titleTemplate,
@@ -39,8 +40,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(COMPANY.domain),
 };
 
-export default function MarketingLayout({ children }: { children: React.ReactNode }) {
-  return <MarketingShell>
-  <PageTransition>{children}</PageTransition>
-</MarketingShell>;
+export default function MarketingLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <MarketingShell>
+      <PageTransition>{children}</PageTransition>
+    </MarketingShell>
+  );
 }
