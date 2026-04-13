@@ -5,6 +5,7 @@
       "dom.iterable",
       "esnext"
     ],
+    "target": "ES2022",
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -32,8 +33,7 @@
       "@lib/*": [
         "lib/*"
       ]
-    },
-    "target": "ES2022"
+    }
   },
   "include": [
     "next-env.d.ts",
