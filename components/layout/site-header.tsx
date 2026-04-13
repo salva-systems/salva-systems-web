@@ -15,8 +15,8 @@ const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
 const LOGO_SRC = "/brand/logo-horizontal-white.png";
 // Keep this compact desktop lockup ratio for a precise/premium header presence.
-const LOGO_WIDTH = 138;
-const LOGO_HEIGHT = 28;
+const LOGO_WIDTH = 150;
+const LOGO_HEIGHT = 31;
 const WHATSAPP_PHONE_DISPLAY = "+52 833 367 4769";
 // Scroll distance (px) before increasing header opacity/clarity.
 const SCROLL_OPACITY_THRESHOLD = 14;
@@ -105,11 +105,11 @@ export function SiteHeader() {
             width={LOGO_WIDTH}
             height={LOGO_HEIGHT}
             priority
-            className="h-6 w-auto sm:h-7"
+            className="h-7 w-auto sm:h-8"
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="Navegación principal">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="NavegaciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n principal">
           {MARKETING_NAV_ITEMS.map((item) => (
             <NavItem key={item.href} href={item.href} label={item.label} />
           ))}
@@ -125,7 +125,7 @@ export function SiteHeader() {
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/45 bg-surface/70 text-muted-foreground transition-colors duration-300 hover:border-primary/45 hover:text-primary-strong md:hidden"
-          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-label={isOpen ? "Cerrar menÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº" : "Abrir menÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº"}
           aria-haspopup="true"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -139,7 +139,7 @@ export function SiteHeader() {
             <motion.div
               id="mobile-navigation"
               role="navigation"
-              aria-label="Navegación móvil"
+              aria-label="NavegaciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³vil"
               className="glass-card absolute inset-x-6 top-[4.5rem] rounded-xl p-4 md:hidden"
               initial={{ opacity: 0, x: MOBILE_MENU_OFFSET_X, y: MOBILE_MENU_OFFSET_Y }}
               animate={{ opacity: 1, x: 0, y: 0 }}
