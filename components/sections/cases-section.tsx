@@ -201,7 +201,7 @@ function SystemBlock({ system }: { system: CaseSystem }) {
 }
 
 function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
-  const Icon = caseIcons[index % caseIcons.length] ?? Building2;
+  const Icon = caseIcons[index % caseIcons.length];
 
   return (
     <MotionWrapper delay={index * 0.08}>
