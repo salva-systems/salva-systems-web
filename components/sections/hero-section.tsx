@@ -140,7 +140,7 @@ export function HeroSection() {
                   <div className="grid gap-3 sm:grid-cols-3">
                     {SYSTEM_ICONS.map((Icon, index) => (
                       <motion.div
-                        key={index}
+                        key={Icon.displayName ?? Icon.name}
                         className="relative rounded-lg border border-primary/20 bg-surface/70 p-3"
                         animate={{ opacity: [0.7, 1, 0.7] }}
                         transition={{ duration: 3 + index, repeat: Infinity, ease: "easeInOut" }}
