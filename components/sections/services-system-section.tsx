@@ -67,16 +67,18 @@ export function ServicesSystemSection() {
   return (
     <>
       <section>
-        <Container className="space-y-6 py-20 lg:py-24">
+        <Container className="space-y-6 pt-8 pb-16 lg:pt-10 lg:pb-20">
           <MotionWrapper className="space-y-4">
-            <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">Cómo trabajamos</p>
+            <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+              Cómo trabajamos
+            </p>
             <h1 className="max-w-3xl text-display-2 text-foreground sm:text-display-1">
               No vendemos servicios.
               <span className="block">Diseñamos sistemas.</span>
             </h1>
             <p className="max-w-3xl text-body text-muted-foreground">
-              Cada negocio tiene problemas distintos, pero casi todos comparten lo mismo: procesos desordenados,
-              herramientas desconectadas y falta de control real.
+              Cada negocio tiene problemas distintos, pero casi todos comparten lo mismo: procesos
+              desordenados, herramientas desconectadas y falta de control real.
             </p>
           </MotionWrapper>
         </Container>
@@ -89,8 +91,8 @@ export function ServicesSystemSection() {
               Antes de construir, entendemos cómo opera el negocio
             </h2>
             <p className="text-body text-muted-foreground">
-              No empezamos con tecnología. Empezamos con la operación, mapeamos el flujo real e identificamos las
-              fricciones que hoy frenan resultados.
+              No empezamos con tecnología. Empezamos con la operación, mapeamos el flujo real e
+              identificamos las fricciones que hoy frenan resultados.
             </p>
           </MotionWrapper>
         </Container>
@@ -165,7 +167,9 @@ export function ServicesSystemSection() {
       <section>
         <Container className="space-y-8 py-16 lg:py-18">
           <MotionWrapper className="space-y-3 text-center">
-            <h2 className="text-heading-1 tracking-tight text-foreground sm:text-display-2">Nuestro proceso</h2>
+            <h2 className="text-heading-1 tracking-tight text-foreground sm:text-display-2">
+              Nuestro proceso
+            </h2>
           </MotionWrapper>
 
           <div className="grid gap-4 md:grid-cols-5">
@@ -173,7 +177,9 @@ export function ServicesSystemSection() {
               <MotionWrapper key={step} delay={index * 0.06}>
                 <Card className="h-full">
                   <CardContent className="space-y-3 p-5">
-                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">Paso {index + 1}</p>
+                    <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
+                      Paso {index + 1}
+                    </p>
                     <p className="text-sm font-semibold text-foreground">{step}</p>
                   </CardContent>
                 </Card>

@@ -6,6 +6,7 @@ import { buildMetadata } from "@/lib/content/site";
 export const metadata: Metadata = buildMetadata(
   "Servicios",
   "Diseñamos sistemas digitales conectando operación, tecnología y crecimiento para negocios que necesitan control real.",
+  "/services",
 );
 
 export default function ServicesPage() {

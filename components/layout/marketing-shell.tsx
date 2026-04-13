@@ -12,9 +12,9 @@ export function MarketingShell({ children }: MarketingShellProps) {
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_360px_at_82%_0%,rgba(32,164,255,0.1),transparent_56%)]" />
       <SiteHeader />
       <main
-        data-scroll-root="true"
-        className="relative z-10 flex-1 py-8 md:py-10"
-      >
+  data-scroll-root="true"
+  className="relative z-10 flex-1"
+>
         {children}
       </main>
       <SiteFooter />
