@@ -168,6 +168,13 @@ type LocaleContent = {
       };
     };
   };
+  finalCta: {
+    title: string;
+    subtitle: string;
+    steps: string[];
+    primaryCta: string;
+    secondaryCta: string;
+  };
   footer: {
     rights: string;
   };
@@ -523,6 +530,13 @@ const content: Record<Locale, LocaleContent> = {
         },
       },
     },
+    finalCta: {
+      title: "La valoración es gratuita.",
+      subtitle: "En esta llamada entendemos tu negocio y te proponemos una solución clara.",
+      steps: ["Nos cuentas tu situación", "Detectamos problemas", "Te proponemos un sistema"],
+      primaryCta: "Analizar mi negocio",
+      secondaryCta: "Hablar por WhatsApp",
+    },
     footer: {
       rights: "Todos los derechos reservados.",
     },
@@ -874,6 +888,13 @@ const content: Record<Locale, LocaleContent> = {
           message: "Please describe your objective",
         },
       },
+    },
+    finalCta: {
+      title: "Assessment is free.",
+      subtitle: "In this call we understand your business and propose a clear solution.",
+      steps: ["You share your situation", "We detect issues", "We propose a system"],
+      primaryCta: "Request assessment",
+      secondaryCta: "Chat on WhatsApp",
     },
     footer: {
       rights: "All rights reserved.",
