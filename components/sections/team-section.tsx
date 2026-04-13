@@ -24,7 +24,7 @@ export function TeamSection() {
         <div className="grid gap-5 md:grid-cols-3">
           {team.members.map((member, index) => (
             <MotionWrapper key={member.name} delay={index * 0.08}>
-              <Card className="h-full overflow-hidden border-border/60 transition-all duration-300 hover:border-primary/45 hover:shadow-glow-soft">
+              <Card className="h-full overflow-hidden border-border/60">
                 <CardHeader className="space-y-4">
                   <div
                     className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-primary/25 bg-gradient-to-br from-primary/20 via-primary/8 to-transparent shadow-glow-soft"
