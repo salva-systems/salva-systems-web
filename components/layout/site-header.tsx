@@ -13,6 +13,9 @@ import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 
 const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
+const SCROLL_THRESHOLD = 14;
+const MOBILE_MENU_OFFSET_X = 18;
+const MOBILE_MENU_OFFSET_Y = -6;
 
 function NavItem({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) {
   return (
@@ -22,7 +25,7 @@ function NavItem({ href, label, onClick }: { href: string; label: string; onClic
       onClick={onClick}
     >
       <span>{label}</span>
-      <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-primary/70 transition-all duration-300 group-hover:w-[calc(100%-0.5rem)]" />
+      <span className="pointer-events-none absolute inset-x-1 bottom-0 h-px origin-center scale-x-0 bg-primary/70 transition-transform duration-300 group-hover:scale-x-100" />
     </Link>
   );
 }
@@ -51,7 +54,7 @@ export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setIsScrolled(window.scrollY > 14);
+    const onScroll = () => setIsScrolled(window.scrollY > SCROLL_THRESHOLD);
 
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -92,7 +95,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-2 md:flex">
           <WhatsAppLink />
-          <Button asChild size="sm" className="hover:shadow-[0_0_0_1px_rgba(43,232,255,0.4),0_0_26px_rgba(0,214,255,0.4)]">
+          <Button asChild size="sm">
             <Link href="/contact">Analizar mi negocio</Link>
           </Button>
         </div>
@@ -116,9 +119,9 @@ export function SiteHeader() {
               role="navigation"
               aria-label="Navegación móvil"
               className="glass-card absolute inset-x-6 top-[4.5rem] rounded-xl p-4 md:hidden"
-              initial={{ opacity: 0, x: 18, y: -6 }}
+              initial={{ opacity: 0, x: MOBILE_MENU_OFFSET_X, y: MOBILE_MENU_OFFSET_Y }}
               animate={{ opacity: 1, x: 0, y: 0 }}
-              exit={{ opacity: 0, x: 18, y: -6 }}
+              exit={{ opacity: 0, x: MOBILE_MENU_OFFSET_X, y: MOBILE_MENU_OFFSET_Y }}
               transition={{ duration: 0.22, ease: "easeOut" }}
             >
               <nav className="flex flex-col gap-1">
