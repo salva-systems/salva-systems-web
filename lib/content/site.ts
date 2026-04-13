@@ -161,12 +161,20 @@ type LocaleContent = {
       message: string;
       submit: string;
       success: string;
+      continueWhatsapp: string;
       validation: {
         name: string;
         email: string;
         message: string;
       };
     };
+  };
+  finalCta: {
+    title: string;
+    subtitle: string;
+    steps: string[];
+    primaryCta: string;
+    secondaryCta: string;
   };
   footer: {
     rights: string;
@@ -194,12 +202,12 @@ const content: Record<Locale, LocaleContent> = {
       eyebrow: "Para negocios que ya venden, pero quieren operar mejor",
       titleLines: ["Tu negocio no necesita más herramientas.", "Necesita un sistema."],
       subheadline:
-        "Diseñamos e implementamos sistemas digitales que organizan tu operación, automatizan procesos y te dan control real sobre tu negocio.",
+        "Diseñamos e implementamos sistemas digitales que ordenan tu operación, reducen errores y te dan más control del negocio.",
       support:
-        "Desde una página web bien hecha hasta sistemas completos con datos, automatización y seguimiento. Todo conectado.",
+        "La valoración es gratuita. Analizamos cómo operas hoy y te proponemos una solución clara. Podemos hacerlo por llamada, videollamada o incluso por WhatsApp.",
       primaryCta: "Analizar mi negocio",
       secondaryCta: "Hablar por WhatsApp",
-      trust: "Basado en proyectos reales · Trabajo directo · Enfoque práctico",
+      trust: "Casos reales · Salva Systems · Tampico · Monterrey",
       systemUi: {
         badge: "System UI · Operación en control",
         dailyOpsLabel: "Operación diaria",
@@ -289,7 +297,7 @@ const content: Record<Locale, LocaleContent> = {
         {
           title: "Plataformas web modernas",
           description:
-            "Desarrollo con Next.js, integración de APIs y patrones de escalabilidad para alta demanda.",
+            "Desarrollo web con integración de sistemas para que tengas procesos claros e información en tiempo real.",
         },
         {
           title: "Automatización operativa",
@@ -299,7 +307,7 @@ const content: Record<Locale, LocaleContent> = {
         {
           title: "Gobierno y observabilidad",
           description:
-            "Métricas, alertado y prácticas de calidad para mantener SLA y trazabilidad en producción.",
+            "Indicadores y alertas para tener más control del negocio, menos errores y menos trabajo manual.",
         },
       ],
     },
@@ -331,9 +339,9 @@ const content: Record<Locale, LocaleContent> = {
         },
         {
           title: "Sistema de Crecimiento",
-          solves: "Convierte la operación en una plataforma lista para escalar con decisiones basadas en datos.",
+          solves: "Convierte la operación en una base clara para crecer con información en tiempo real.",
           includes:
-            "Automatizaciones avanzadas, métricas de rendimiento, reportes accionables y mejora continua.",
+            "Automatizaciones, métricas de rendimiento, reportes accionables y mejora continua.",
           forWho:
             "Empresas que ya operan con base digital y quieren acelerar crecimiento con previsibilidad.",
         },
@@ -508,20 +516,28 @@ const content: Record<Locale, LocaleContent> = {
     contact: {
       headline: "Conversemos sobre tu operación digital",
       intro:
-        "Cuéntanos tu contexto y te proponemos un plan de acción realista en menos de 48 horas.",
+        "Cuéntanos tu contexto. La valoración es gratuita y te contactaremos en menos de 24 horas.",
       form: {
         name: "Nombre",
         email: "Correo corporativo",
         company: "Empresa",
         message: "Objetivo y contexto",
         submit: "Enviar solicitud",
-        success: "Gracias. Hemos recibido tu solicitud y te contactaremos pronto.",
+        success: "Recibimos tu información. Te contactaremos en menos de 24 horas.",
+        continueWhatsapp: "Continuar en WhatsApp",
         validation: {
           name: "Indica tu nombre",
           email: "Introduce un correo válido",
           message: "Explica brevemente el objetivo",
         },
       },
+    },
+    finalCta: {
+      title: "La valoración es gratuita.",
+      subtitle: "En esta llamada entendemos tu negocio y te proponemos una solución clara.",
+      steps: ["Nos cuentas tu situación", "Detectamos problemas", "Te proponemos un sistema"],
+      primaryCta: "Analizar mi negocio",
+      secondaryCta: "Hablar por WhatsApp",
     },
     footer: {
       rights: "Todos los derechos reservados.",
@@ -868,12 +884,20 @@ const content: Record<Locale, LocaleContent> = {
         message: "Goal and context",
         submit: "Send request",
         success: "Thanks. We received your request and will contact you soon.",
+        continueWhatsapp: "Continue on WhatsApp",
         validation: {
           name: "Please provide your name",
           email: "Please provide a valid email",
           message: "Please describe your objective",
         },
       },
+    },
+    finalCta: {
+      title: "Assessment is free.",
+      subtitle: "In this call we understand your business and propose a clear solution.",
+      steps: ["You share your situation", "We detect issues", "We propose a system"],
+      primaryCta: "Request assessment",
+      secondaryCta: "Chat on WhatsApp",
     },
     footer: {
       rights: "All rights reserved.",

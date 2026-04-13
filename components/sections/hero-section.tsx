@@ -10,7 +10,7 @@ import { getContent } from "@/lib/content/site";
 
 export function HeroSection() {
   const { home } = getContent();
-  const whatsappUrl = `https://wa.me/${COMPANY.phone.replace(/\D/g, "")}`;
+  const whatsappUrl = COMPANY.whatsappUrl;
 
   return (
     <section>
@@ -28,10 +28,10 @@ export function HeroSection() {
             <p className="max-w-2xl text-body text-muted-foreground">{home.subheadline}</p>
             <p className="max-w-2xl text-small text-muted-foreground">{home.support}</p>
             <div className="flex flex-wrap gap-3">
-              <Button asChild>
+              <Button asChild size="lg" className="shadow-glow-soft">
                 <Link href="/contact">{home.primaryCta}</Link>
               </Button>
-              <Button asChild variant="outline">
+              <Button asChild variant="outline" size="lg" className="hover:border-primary/45 hover:bg-primary/5">
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
                   {home.secondaryCta}
                 </a>

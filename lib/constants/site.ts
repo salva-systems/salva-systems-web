@@ -1,3 +1,7 @@
+const WHATSAPP_NUMBER = "528333674769";
+const WHATSAPP_MESSAGE = "Hola, quiero analizar mi negocio con Salva Systems";
+const WHATSAPP_MESSAGE_ENCODED = encodeURIComponent(WHATSAPP_MESSAGE).replace("%2C", ",");
+
 export const DEFAULT_LOCALE = "es" as const;
 export const SUPPORTED_LOCALES = ["es", "en"] as const;
 
@@ -5,9 +9,10 @@ export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
 export const COMPANY = {
   name: "Salva Systems",
-  legalName: "Salva Systems S.L.",
+  legalName: "Salva Systems",
   domain: "https://salvasystems.com",
   email: "contacto@salvasystems.com",
-  phone: "+34 900 123 456",
-  city: "Madrid",
+  phone: "+52 833 367 4769",
+  city: "Tampico · Monterrey",
+  whatsappUrl: `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE_ENCODED}`,
 };

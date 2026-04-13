@@ -26,6 +26,8 @@ type CaseStudyItem = {
   };
 };
 
+const CREDIBILITY_NOTE = "Nota de credibilidad: caso documentado y contexto verificable.";
+
 const CASE_STUDIES: CaseStudyItem[] = [
   {
     title: "Santander · Plataforma interna de capacitación y documentación",
@@ -92,7 +94,7 @@ const CASE_STUDIES: CaseStudyItem[] = [
     },
   },
   {
-    title: "NeoGuard (IEEE) · Monitoreo inteligente neonatal",
+    title: "IEEE (NeoGuard) · Monitoreo inteligente neonatal",
     context: "Proyecto académico de investigación aplicada con enfoque en ingeniería clínica.",
     problem:
       "Se necesitaba monitoreo continuo de variables críticas en incubadoras neonatales, con alertamiento oportuno y visualización accesible para personal clínico.",
@@ -215,6 +217,7 @@ function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Resultado</p>
             <p className="text-small text-foreground/90">{item.outcome}</p>
           </div>
+          <p className="text-[11px] text-muted-foreground">{CREDIBILITY_NOTE}</p>
         </CardContent>
       </Card>
     </MotionWrapper>
