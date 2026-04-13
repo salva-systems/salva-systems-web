@@ -336,7 +336,7 @@ const content: Record<Locale, LocaleContent> = {
           credentials: [
             "Oracle Cloud Infrastructure · Data Platform · AI Foundations",
             "Scrum Master (CSM) · Product Owner",
-            "English C1",
+            "English · C1",
           ],
           subtext: "Ingeniería en Tecnologías Computacionales · Tecnológico de Monterrey",
         },
@@ -618,7 +618,7 @@ const content: Record<Locale, LocaleContent> = {
           credentials: [
             "Oracle Cloud Infrastructure · Data Platform · AI Foundations",
             "Scrum Master (CSM) · Product Owner",
-            "English C1",
+            "English · C1",
           ],
           subtext: "B.S. in Computer Technologies Engineering · Tecnológico de Monterrey",
         },

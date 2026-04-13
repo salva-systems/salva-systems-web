@@ -26,9 +26,16 @@ export function TeamSection() {
             <MotionWrapper key={member.name} delay={index * 0.08}>
               <Card className="h-full overflow-hidden border-border/60 transition-all duration-300 hover:border-primary/45 hover:shadow-glow-soft">
                 <CardHeader className="space-y-4">
-                  <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-primary/25 bg-gradient-to-br from-primary/20 via-primary/8 to-transparent shadow-glow-soft">
+                  <div
+                    className="relative aspect-[4/3] w-full overflow-hidden rounded-xl border border-primary/25 bg-gradient-to-br from-primary/20 via-primary/8 to-transparent shadow-glow-soft"
+                    aria-hidden="true"
+                    role="presentation"
+                  >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.2),transparent_55%)]" />
-                    <div className="absolute bottom-3 left-3 rounded-md border border-primary/25 bg-background/80 px-2.5 py-1 text-xs font-semibold tracking-[0.14em] text-primary/85 backdrop-blur">
+                    <div
+                      className="absolute bottom-3 left-3 rounded-md border border-primary/25 bg-background/80 px-2.5 py-1 text-xs font-semibold tracking-[0.14em] text-primary/85 backdrop-blur"
+                      aria-hidden="true"
+                    >
                       {getInitials(member.name)}
                     </div>
                   </div>
