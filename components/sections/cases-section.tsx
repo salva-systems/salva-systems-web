@@ -9,7 +9,7 @@ type CasePreviewItem = {
   problem: string;
   system: string;
   result: string;
-  note: string;
+  note?: string;
   visual: {
     heading: string;
     streams: string[];
@@ -116,7 +116,7 @@ function CaseCard({ item, index }: { item: CasePreviewItem; index: number }) {
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Resultado</p>
             <p className="text-small text-foreground/90">{item.result}</p>
           </div>
-          <p className="border-t border-border/35 pt-3 text-xs font-medium text-primary/85">{item.note}</p>
+          {item.note ? <p className="border-t border-border/35 pt-3 text-xs font-medium text-primary/85">{item.note}</p> : null}
         </CardContent>
       </Card>
     </MotionWrapper>
