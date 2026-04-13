@@ -70,8 +70,8 @@ export function HeroSection() {
                     {home.systemUi.flowLabel}
                   </p>
                   <ul className="mt-3 space-y-2 text-sm text-foreground">
-                    {home.systemUi.flowItems.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
+                    {home.systemUi.flowItems.map((item, index) => (
+                      <li key={index} className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-primary/80" />
                         {item}
                       </li>
