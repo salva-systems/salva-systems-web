@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 
-import { ServicesGridSection } from "@/components/sections/services-grid-section";
-import { buildMetadata, getContent } from "@/lib/content/site";
+import { ServicesSystemSection } from "@/components/sections/services-system-section";
+import { buildMetadata } from "@/lib/content/site";
 
-const { services } = getContent();
-
-export const metadata: Metadata = buildMetadata("Servicios", services.intro);
+export const metadata: Metadata = buildMetadata(
+  "Servicios",
+  "Diseñamos sistemas digitales conectando operación, tecnología y crecimiento para negocios que necesitan control real.",
+);
 
 export default function ServicesPage() {
-  return <ServicesGridSection />;
+  return <ServicesSystemSection />;
 }
