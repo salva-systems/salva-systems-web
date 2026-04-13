@@ -11,6 +11,7 @@ import { COMPANY } from "@/lib/constants/site";
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
+  const whatsappUrl = `https://wa.me/${COMPANY.phone.replace(/\D/g, "")}`;
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/35 bg-background/70 backdrop-blur-xl">
@@ -29,7 +30,7 @@ export function SiteHeader() {
 
         <div className="hidden items-center gap-3 md:flex">
           <a
-            href={`https://wa.me/${COMPANY.phone.replace(/\D/g, "")}`}
+            href={whatsappUrl}
             className="text-small text-muted-foreground transition-colors hover:text-primary-strong"
           >
             WhatsApp {COMPANY.phone}
@@ -43,13 +44,21 @@ export function SiteHeader() {
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/45 bg-surface/70 text-muted-foreground md:hidden"
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
+          aria-expanded={isOpen}
+          aria-controls="mobile-navigation"
           onClick={() => setIsOpen((value) => !value)}
         >
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
 
         {isOpen ? (
-          <div className="glass-card absolute left-6 right-6 top-[4.5rem] rounded-xl p-4 md:hidden">
+          <div
+            id="mobile-navigation"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navegación móvil"
+            className="glass-card absolute left-6 right-6 top-[4.5rem] rounded-xl p-4 md:hidden"
+          >
             <nav className="flex flex-col gap-1">
               {MARKETING_NAV_ITEMS.map((item) => (
                 <Link
@@ -63,7 +72,7 @@ export function SiteHeader() {
               ))}
             </nav>
             <a
-              href={`https://wa.me/${COMPANY.phone.replace(/\D/g, "")}`}
+              href={whatsappUrl}
               className="mt-3 block px-3 text-small text-muted-foreground transition-colors hover:text-primary-strong"
             >
               WhatsApp {COMPANY.phone}
