@@ -9,8 +9,9 @@ export function MarketingShell({ children }: MarketingShellProps) {
   return (
     <div className="relative flex min-h-screen flex-col bg-background">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_420px_at_15%_5%,rgba(0,214,255,0.12),transparent_58%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(640px_360px_at_82%_0%,rgba(32,164,255,0.1),transparent_56%)]" />
       <SiteHeader />
-      <main className="relative z-10 flex-1">{children}</main>
+      <main className="relative z-10 flex-1 py-8 md:py-10">{children}</main>
       <SiteFooter />
     </div>
   );
