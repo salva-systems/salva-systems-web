@@ -19,8 +19,8 @@ export function HeroSection() {
           <MotionWrapper className="space-y-6">
             <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">{home.eyebrow}</p>
             <h1 className="text-display-2 text-foreground sm:text-display-1">
-              {home.titleLines.map((line, index) => (
-                <span key={index} className="block">
+              {home.titleLines.map((line) => (
+                <span key={line} className="block">
                   {line}
                 </span>
               ))}
@@ -70,8 +70,8 @@ export function HeroSection() {
                     {home.systemUi.flowLabel}
                   </p>
                   <ul className="mt-3 space-y-2 text-sm text-foreground">
-                    {home.systemUi.flowItems.map((item, index) => (
-                      <li key={index} className="flex items-center gap-2">
+                    {home.systemUi.flowItems.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
                         <CheckCircle2 className="h-4 w-4 text-primary/80" />
                         {item}
                       </li>
