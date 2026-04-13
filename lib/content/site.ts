@@ -185,7 +185,7 @@ const content: Record<Locale, LocaleContent> = {
   es: {
     seo: {
       titleTemplate: "%s | Salva Systems",
-      siteTitle: "Ingeniería digital orientada a resultados",
+      siteTitle: "Salva Systems",
       description:
         "Consultoría tecnológica, automatización y plataformas digitales para empresas que necesitan escalar con fiabilidad.",
     },
@@ -546,7 +546,7 @@ const content: Record<Locale, LocaleContent> = {
   en: {
     seo: {
       titleTemplate: "%s | Salva Systems",
-      siteTitle: "Digital engineering focused on business outcomes",
+      siteTitle: "Salva Systems",
       description:
         "Technology consulting, automation, and digital platforms for organizations that need reliable scale.",
     },
