@@ -38,7 +38,7 @@ export function TeamSection() {
 
   return (
     <section>
-      <Container className="space-y-10 py-16 lg:py-18">
+      <Container className="space-y-10 pt-8 pb-16 lg:pt-10 lg:pb-18">
         <SectionHeading title={team.headline} description={team.intro} />
 
         <div className="grid gap-5 md:grid-cols-3">

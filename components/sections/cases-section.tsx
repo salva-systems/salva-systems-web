@@ -227,7 +227,7 @@ function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
 export function CasePreviewSection() {
   return (
     <section>
-      <Container className="space-y-10 py-16 lg:py-18">
+      <Container className="space-y-10 pt-8 pb-16 lg:pt-10 lg:pb-18">
         <SectionHeading
           title="Casos de estudio"
           description="Trabajo en contexto corporativo y académico, documentado con enfoque operativo: problema real, sistema implementado, rol definido y resultados verificables."
