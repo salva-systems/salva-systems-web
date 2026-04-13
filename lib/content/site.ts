@@ -419,7 +419,7 @@ const content: Record<Locale, LocaleContent> = {
       headline: "Cómo construimos sistemas digitales",
       intro:
         "Esta sección está pensada para perfiles técnicos que quieren entender cómo trabajamos realmente.",
-      architectureHeading: "Architecture Thinking",
+      architectureHeading: "Pensamiento de arquitectura",
       architecturePoints: [
         {
           title: "Sistemas por encima de features",
@@ -456,14 +456,14 @@ const content: Record<Locale, LocaleContent> = {
           items: ["AWS", "Azure"],
         },
       ],
-      dataApproachHeading: "Data Approach",
+      dataApproachHeading: "Enfoque de datos",
       dataApproach: [
         "Recolectamos datos operativos en los puntos donde realmente se generan eventos críticos.",
         "Estructuramos la información para que el negocio pueda consultar estado, trazabilidad y cuellos de botella sin ambigüedad.",
         "Construimos dashboards orientados a decisiones, no solo a visualización.",
         "Conectamos métricas con acciones concretas para mejorar tiempos, costos y confiabilidad.",
       ],
-      engineeringPrinciplesHeading: "Engineering Principles",
+      engineeringPrinciplesHeading: "Principios de ingeniería",
       engineeringPrinciples: [
         "Modularidad",
         "Escalabilidad",
