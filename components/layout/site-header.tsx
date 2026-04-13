@@ -1,48 +1,105 @@
 "use client";
 
+import clsx from "clsx";
+import { AnimatePresence, motion } from "framer-motion";
+import { Menu, MessageCircle, X } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import { Menu, X } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
-import { COMPANY } from "@/lib/constants/site";
+
+const WHATSAPP_URL =
+  "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
+
+function NavItem({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) {
+  return (
+    <Link
+      href={href}
+      className="group relative rounded-md px-1 py-2 text-small text-foreground/85 transition-colors duration-300 hover:text-primary-strong"
+      onClick={onClick}
+    >
+      <span>{label}</span>
+      <span className="pointer-events-none absolute -bottom-0.5 left-1/2 h-px w-0 -translate-x-1/2 bg-primary/70 transition-all duration-300 group-hover:w-[calc(100%-0.5rem)]" />
+    </Link>
+  );
+}
+
+function WhatsAppLink({ compact = false }: { compact?: boolean }) {
+  return (
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={clsx(
+        "inline-flex items-center gap-2 rounded-lg border border-border/50 bg-surface/60 px-3 py-2 text-small text-muted-foreground transition-all duration-300 hover:border-primary/45 hover:text-primary-strong",
+        compact && "w-full justify-center",
+      )}
+      aria-label="Contactar por WhatsApp"
+    >
+      <MessageCircle className="h-4 w-4" />
+      <span className="hidden lg:inline">+52 833 367 4769</span>
+      <span className="lg:hidden">WhatsApp</span>
+    </a>
+  );
+}
 
 export function SiteHeader() {
   const [isOpen, setIsOpen] = useState(false);
-  const whatsappUrl = `https://wa.me/${COMPANY.phone.replace(/\D/g, "")}`;
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setIsScrolled(window.scrollY > 14);
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-border/35 bg-background/70 backdrop-blur-xl">
+    <motion.header
+      className={clsx(
+        "sticky top-0 z-50 border-b backdrop-blur-md transition-colors duration-300",
+        isScrolled
+          ? "border-primary/20 bg-background/90"
+          : "border-border/35 bg-background/68",
+      )}
+      animate={{
+        backdropFilter: isScrolled ? "blur(14px)" : "blur(10px)",
+      }}
+      transition={{ duration: 0.25, ease: "easeOut" }}
+    >
       <Container className="relative flex h-[4.5rem] items-center justify-between gap-4">
-        <Link href="/" className="text-base font-semibold tracking-tight sm:text-lg">
-          Salva Systems
+        <Link href="/" className="inline-flex items-center py-1" aria-label="Salva Systems inicio">
+          <Image
+            src="/brand/logo-horizontal-white.png"
+            alt="Salva Systems"
+            width={138}
+            height={28}
+            priority
+            className="h-6 w-auto sm:h-7"
+          />
         </Link>
 
-        <nav className="hidden items-center gap-6 text-small text-muted-foreground lg:flex">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Navegación principal">
           {MARKETING_NAV_ITEMS.map((item) => (
-            <Link key={item.href} href={item.href} className="transition-colors hover:text-primary-strong">
-              {item.label}
-            </Link>
+            <NavItem key={item.href} href={item.href} label={item.label} />
           ))}
         </nav>
 
-        <div className="hidden items-center gap-3 md:flex">
-          <a
-            href={whatsappUrl}
-            className="text-small text-muted-foreground transition-colors hover:text-primary-strong"
-          >
-            WhatsApp {COMPANY.phone}
-          </a>
-          <Button asChild size="sm">
+        <div className="hidden items-center gap-2 md:flex">
+          <WhatsAppLink />
+          <Button asChild size="sm" className="hover:shadow-[0_0_0_1px_rgba(43,232,255,0.4),0_0_26px_rgba(0,214,255,0.4)]">
             <Link href="/contact">Analizar mi negocio</Link>
           </Button>
         </div>
 
         <button
           type="button"
-          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/45 bg-surface/70 text-muted-foreground md:hidden"
+          className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/45 bg-surface/70 text-muted-foreground transition-colors duration-300 hover:border-primary/45 hover:text-primary-strong md:hidden"
           aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-haspopup="true"
           aria-expanded={isOpen}
@@ -52,39 +109,41 @@ export function SiteHeader() {
           {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
 
-        {isOpen ? (
-          <div
-            id="mobile-navigation"
-            role="navigation"
-            aria-label="Navegación móvil"
-            className="glass-card absolute left-6 right-6 top-[4.5rem] rounded-xl p-4 md:hidden"
-          >
-            <nav className="flex flex-col gap-1">
-              {MARKETING_NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="rounded-md px-3 py-2 text-small text-muted-foreground transition-colors hover:bg-white/5 hover:text-primary-strong"
-                  onClick={() => setIsOpen(false)}
-                >
-                  {item.label}
-                </Link>
-              ))}
-            </nav>
-            <a
-              href={whatsappUrl}
-              className="mt-3 block px-3 text-small text-muted-foreground transition-colors hover:text-primary-strong"
+        <AnimatePresence>
+          {isOpen ? (
+            <motion.div
+              id="mobile-navigation"
+              role="navigation"
+              aria-label="Navegación móvil"
+              className="glass-card absolute inset-x-6 top-[4.5rem] rounded-xl p-4 md:hidden"
+              initial={{ opacity: 0, x: 18, y: -6 }}
+              animate={{ opacity: 1, x: 0, y: 0 }}
+              exit={{ opacity: 0, x: 18, y: -6 }}
+              transition={{ duration: 0.22, ease: "easeOut" }}
             >
-              WhatsApp {COMPANY.phone}
-            </a>
-            <Button asChild className="mt-3 w-full" size="sm">
-              <Link href="/contact" onClick={() => setIsOpen(false)}>
-                Analizar mi negocio
-              </Link>
-            </Button>
-          </div>
-        ) : null}
+              <nav className="flex flex-col gap-1">
+                {MARKETING_NAV_ITEMS.map((item) => (
+                  <NavItem
+                    key={item.href}
+                    href={item.href}
+                    label={item.label}
+                    onClick={() => setIsOpen(false)}
+                  />
+                ))}
+              </nav>
+
+              <div className="mt-3 flex flex-col gap-2">
+                <WhatsAppLink compact />
+                <Button asChild className="w-full" size="sm">
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                    Analizar mi negocio
+                  </Link>
+                </Button>
+              </div>
+            </motion.div>
+          ) : null}
+        </AnimatePresence>
       </Container>
-    </header>
+    </motion.header>
   );
 }
