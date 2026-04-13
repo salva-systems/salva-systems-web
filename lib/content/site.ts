@@ -34,6 +34,9 @@ type TeamMember = {
   name: string;
   role: string;
   profile: string;
+  credibility: string[];
+  credentials?: string[];
+  subtext: string;
 };
 
 type TechnicalPillar = {
@@ -316,27 +319,52 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     team: {
-      headline: "Equipo senior multidisciplinar",
+      headline: "Equipo con fortalezas complementarias",
       intro:
-        "Combinamos liderazgo técnico, experiencia de producto y dominio operativo para ejecutar con foco en negocio.",
+        "Combinamos sistemas digitales, operación de negocio e ingeniería aplicada para construir soluciones reales.",
       members: [
         {
-          name: "Laura Sánchez",
-          role: "Directora de Ingeniería",
+          name: "Carlos Sánchez Gutiérrez",
+          role: "Digital Systems & Data Lead",
           profile:
-            "Especialista en arquitectura de plataformas y modernización de sistemas heredados.",
+            "Diseña, construye e integra sistemas digitales con enfoque en operación, datos y automatización.",
+          credibility: [
+            "CEMEX · Data Science Intern (plataformas globales de datos)",
+            "Santander · Plataforma de analítica operativa",
+            "IEEE · Sistema con IA + IoT",
+          ],
+          credentials: [
+            "Oracle Cloud Infrastructure · Data Platform · AI Foundations",
+            "Scrum Master (CSM) · Product Owner",
+            "English C1",
+          ],
+          subtext: "Ingeniería en Tecnologías Computacionales · Tecnológico de Monterrey",
         },
         {
-          name: "Daniel Ramos",
-          role: "Lead Product Strategist",
+          name: "Lehi Salvador Rangel Cárdenas",
+          role: "Business & Operations Lead",
           profile:
-            "Conecta objetivos comerciales con entregables digitales medibles.",
+            "Aterriza soluciones conectando tecnología con la operación del negocio.",
+          credibility: [
+            "Sabor a Mi · Operación de negocio familiar",
+            "Cooper / T. Smith · Experiencia empresarial",
+            "Salva Exclusive Caps · Emprendimiento",
+          ],
+          subtext: "Ingeniería Industrial · Tecnológico de Monterrey",
         },
         {
-          name: "Marta Pineda",
-          role: "Responsable de Operaciones Cloud",
+          name: "Maximiliano Lozano Suárez",
+          role: "Engineering & Innovation Lead",
           profile:
-            "Diseña prácticas de observabilidad, resiliencia y respuesta a incidentes.",
+            "Aporta profundidad técnica, estructura de ingeniería e innovación aplicada en proyectos de alto nivel.",
+          credibility: [
+            "Líder del Mañana · Tec de Monterrey (beca de excelencia académica y liderazgo)",
+            "McGill University · Estancia de investigación (Canadá)",
+            "Degas Café · Proyecto sostenible",
+            "LARC & LARS 2025 · Competencias internacionales",
+            "IPECO · Maintenance Intern",
+          ],
+          subtext: "Ingeniería en Mecatrónica · Tecnológico de Monterrey",
         },
       ],
     },
@@ -573,27 +601,52 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     team: {
-      headline: "Senior multidisciplinary team",
+      headline: "Team with complementary strengths",
       intro:
-        "We combine technical leadership, product expertise, and operations experience.",
+        "We combine digital systems, business operations, and applied engineering to deliver real solutions.",
       members: [
         {
-          name: "Laura Sánchez",
-          role: "Engineering Director",
+          name: "Carlos Sánchez Gutiérrez",
+          role: "Digital Systems & Data Lead",
           profile:
-            "Specialist in platform architecture and modernization of legacy ecosystems.",
+            "Designs, builds, and integrates digital systems focused on operations, data, and automation.",
+          credibility: [
+            "CEMEX · Data Science Intern (global data platforms)",
+            "Santander · Operational analytics platform",
+            "IEEE · AI + IoT system",
+          ],
+          credentials: [
+            "Oracle Cloud Infrastructure · Data Platform · AI Foundations",
+            "Scrum Master (CSM) · Product Owner",
+            "English C1",
+          ],
+          subtext: "B.S. in Computer Technologies Engineering · Tecnológico de Monterrey",
         },
         {
-          name: "Daniel Ramos",
-          role: "Lead Product Strategist",
+          name: "Lehi Salvador Rangel Cárdenas",
+          role: "Business & Operations Lead",
           profile:
-            "Connects commercial priorities with measurable digital execution.",
+            "Turns ideas into execution by connecting technology with business operations.",
+          credibility: [
+            "Sabor a Mi · Family business operations",
+            "Cooper / T. Smith · Business experience",
+            "Salva Exclusive Caps · Entrepreneurship",
+          ],
+          subtext: "B.S. in Industrial Engineering · Tecnológico de Monterrey",
         },
         {
-          name: "Marta Pineda",
-          role: "Cloud Operations Lead",
+          name: "Maximiliano Lozano Suárez",
+          role: "Engineering & Innovation Lead",
           profile:
-            "Designs observability, resilience, and incident response operating models.",
+            "Brings technical depth, engineering structure, and applied innovation to high-level projects.",
+          credibility: [
+            "Líder del Mañana · Tec de Monterrey (full scholarship for academic excellence and leadership)",
+            "McGill University · Research stay (Canada)",
+            "Degas Café · Sustainable project",
+            "LARC & LARS 2025 · International competitions",
+            "IPECO · Maintenance Intern",
+          ],
+          subtext: "B.S. in Mechatronics Engineering · Tecnológico de Monterrey",
         },
       ],
     },
