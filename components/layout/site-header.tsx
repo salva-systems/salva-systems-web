@@ -17,11 +17,24 @@ const SCROLL_THRESHOLD = 14;
 const MOBILE_MENU_OFFSET_X = 18;
 const MOBILE_MENU_OFFSET_Y = -6;
 
-function NavItem({ href, label, onClick }: { href: string; label: string; onClick?: () => void }) {
+function NavItem({
+  href,
+  label,
+  mobile = false,
+  onClick,
+}: {
+  href: string;
+  label: string;
+  mobile?: boolean;
+  onClick?: () => void;
+}) {
   return (
     <Link
       href={href}
-      className="group relative rounded-md px-1 py-2 text-small text-foreground/85 transition-colors duration-300 hover:text-primary-strong"
+      className={clsx(
+        "group relative rounded-md py-2 text-small text-foreground/85 transition-colors duration-300 hover:text-primary-strong",
+        mobile ? "px-3 hover:bg-white/5" : "px-1",
+      )}
       onClick={onClick}
     >
       <span>{label}</span>
@@ -130,6 +143,7 @@ export function SiteHeader() {
                     key={item.href}
                     href={item.href}
                     label={item.label}
+                    mobile
                     onClick={() => setIsOpen(false)}
                   />
                 ))}
