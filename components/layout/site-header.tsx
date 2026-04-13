@@ -23,17 +23,6 @@ const HEADER_BLUR_SCROLLED = "blur(14px)";
 const MOBILE_MENU_OFFSET_X = 18;
 const MOBILE_MENU_OFFSET_Y = -6;
 
-function forceScrollTop() {
-  window.scrollTo(0, 0);
-  document.documentElement.scrollTop = 0;
-  document.body.scrollTop = 0;
-
-  const main = document.querySelector('[data-scroll-root="true"]');
-  if (main && "scrollTo" in main) {
-    (main as HTMLElement).scrollTo({ top: 0, left: 0, behavior: "auto" });
-  }
-}
-
 function NavItem({
   href,
   label,
@@ -45,29 +34,18 @@ function NavItem({
   mobile?: boolean;
   onClick?: () => void;
 }) {
-  const handleClick = () => {
-    onClick?.();
-    requestAnimationFrame(() => {
-      forceScrollTop();
-    });
-    setTimeout(() => {
-      forceScrollTop();
-    }, 60);
-  };
-
   return (
-    <Link
+    <a
       href={href}
-      scroll
       className={clsx(
         "group relative rounded-md py-2 text-small text-foreground/85 transition-colors duration-300 hover:text-primary-strong",
         mobile ? "px-3 hover:bg-white/5" : "px-1",
       )}
-      onClick={handleClick}
+      onClick={onClick}
     >
       <span>{label}</span>
       <span className="pointer-events-none absolute inset-x-1 bottom-0 h-px origin-center scale-x-0 bg-primary/70 transition-transform duration-300 group-hover:scale-x-100" />
-    </Link>
+    </a>
   );
 }
 
@@ -117,17 +95,7 @@ export function SiteHeader() {
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
       <Container className="relative flex h-[4.5rem] items-center justify-between gap-4">
-        <Link
-          href="/"
-          scroll
-          className="inline-flex items-center py-1"
-          aria-label="Salva Systems inicio"
-          onClick={() => {
-            requestAnimationFrame(() => {
-              forceScrollTop();
-            });
-          }}
-        >
+        <Link href="/" className="inline-flex items-center py-1" aria-label="Salva Systems inicio">
           <Image
             src={LOGO_SRC}
             alt="Salva Systems"
@@ -147,17 +115,7 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <WhatsAppLink />
           <Button asChild size="sm">
-            <Link
-              href="/contact"
-              scroll
-              onClick={() => {
-                requestAnimationFrame(() => {
-                  forceScrollTop();
-                });
-              }}
-            >
-              Analizar mi negocio
-            </Link>
+            <Link href="/contact">Analizar mi negocio</Link>
           </Button>
         </div>
 
@@ -200,19 +158,7 @@ export function SiteHeader() {
               <div className="mt-3 flex flex-col gap-2">
                 <WhatsAppLink compact />
                 <Button asChild className="w-full" size="sm">
-                  <Link
-                    href="/contact"
-                    scroll
-                    onClick={() => {
-                      setIsOpen(false);
-                      requestAnimationFrame(() => {
-                        forceScrollTop();
-                      });
-                      setTimeout(() => {
-                        forceScrollTop();
-                      }, 60);
-                    }}
-                  >
+                  <Link href="/contact" onClick={() => setIsOpen(false)}>
                     Analizar mi negocio
                   </Link>
                 </Button>
