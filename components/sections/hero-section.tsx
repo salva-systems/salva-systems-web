@@ -18,7 +18,13 @@ export function HeroSection() {
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
           <MotionWrapper className="space-y-6">
             <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">{home.eyebrow}</p>
-            <h1 className="whitespace-pre-line text-display-2 text-foreground sm:text-display-1">{home.title}</h1>
+            <h1 className="text-display-2 text-foreground sm:text-display-1">
+              {home.titleLines.map((line, index) => (
+                <span key={`${line}-${index}`} className="block">
+                  {line}
+                </span>
+              ))}
+            </h1>
             <p className="max-w-2xl text-body text-muted-foreground">{home.subheadline}</p>
             <p className="max-w-2xl text-small text-muted-foreground">{home.support}</p>
             <div className="flex flex-wrap gap-3">

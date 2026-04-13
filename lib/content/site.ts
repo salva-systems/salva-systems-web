@@ -43,7 +43,7 @@ type LocaleContent = {
   navigation: NavItem[];
   home: {
     eyebrow: string;
-    title: string;
+    titleLines: string[];
     subheadline: string;
     support: string;
     primaryCta: string;
@@ -116,7 +116,7 @@ const content: Record<Locale, LocaleContent> = {
     ],
     home: {
       eyebrow: "Para negocios que ya venden, pero quieren operar mejor",
-      title: "Tu negocio no necesita más herramientas.\nNecesita un sistema.",
+      titleLines: ["Tu negocio no necesita más herramientas.", "Necesita un sistema."],
       subheadline:
         "Diseñamos e implementamos sistemas digitales que organizan tu operación, automatizan procesos y te dan control real sobre tu negocio.",
       support:
@@ -284,7 +284,7 @@ const content: Record<Locale, LocaleContent> = {
     ],
     home: {
       eyebrow: "Architecture, product, and operations in one delivery unit",
-      title: "We build resilient web systems for mission-critical operations",
+      titleLines: ["We build resilient web systems", "for mission-critical operations"],
       subheadline:
         "We design, implement, and operate Next.js platforms and connected services with strong performance and reliability standards.",
       support:
