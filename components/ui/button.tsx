@@ -5,19 +5,20 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "@/lib/utils";
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-zinc-950 disabled:pointer-events-none disabled:opacity-50 dark:focus-visible:ring-zinc-300",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-lg text-sm font-medium transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/55 focus-visible:ring-offset-2 focus-visible:ring-offset-background disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-zinc-950 text-zinc-50 shadow hover:bg-zinc-900",
+        default:
+          "border border-primary/70 bg-primary text-primary-foreground shadow-glow hover:-translate-y-0.5 hover:bg-primary-strong hover:shadow-[0_0_0_1px_rgba(43,232,255,0.4),0_0_28px_rgba(0,214,255,0.45)]",
         outline:
-          "border border-zinc-200 bg-white shadow-sm hover:bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-950 dark:hover:bg-zinc-900",
-        ghost: "hover:bg-zinc-100 dark:hover:bg-zinc-800",
+          "border border-border/55 bg-surface/75 text-foreground shadow-premium backdrop-blur-lg hover:border-primary/50 hover:bg-surface-elevated/85 hover:text-primary-strong",
+        ghost: "text-muted-foreground hover:bg-white/5 hover:text-primary-strong",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-8 rounded-md px-3 text-xs",
-        lg: "h-11 rounded-md px-8",
+        default: "h-11 px-5 py-2.5",
+        sm: "h-9 px-3 text-xs",
+        lg: "h-12 px-8 text-base",
       },
     },
     defaultVariants: {
