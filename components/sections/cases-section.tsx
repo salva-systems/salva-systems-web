@@ -3,7 +3,6 @@ import { Building2, Factory, Microscope, Network } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
 import { MotionWrapper } from "@/components/shared/motion-wrapper";
-import { SectionHeading } from "@/components/shared/section-heading";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 type CaseSystem = {
@@ -139,7 +138,9 @@ function CaseVisual({
   return (
     <div className="rounded-lg border border-primary/25 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-3 shadow-glow-soft">
       <div className="mb-3 flex items-center justify-between">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">{item.visual.heading}</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">
+          {item.visual.heading}
+        </p>
         <IconComponent className="h-4 w-4 text-primary/80" />
       </div>
       <div className="grid gap-2 sm:grid-cols-3">
@@ -159,7 +160,9 @@ function CaseVisual({
 function CaseBlock({ label, children }: { label: string; children: string }) {
   return (
     <div className="space-y-1.5">
-      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">{label}</p>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">
+        {label}
+      </p>
       <p className="text-small text-muted-foreground">{children}</p>
     </div>
   );
@@ -168,7 +171,9 @@ function CaseBlock({ label, children }: { label: string; children: string }) {
 function SystemListColumn({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="rounded-md border border-border/55 bg-surface/75 p-2.5">
-      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">{title}</p>
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">
+        {title}
+      </p>
       <ul className="mt-2 space-y-1.5 text-[11px] text-muted-foreground">
         {items.map((item) => (
           <li key={item}>• {item}</li>
@@ -183,7 +188,9 @@ function SystemBlock({ system }: { system: CaseSystem }) {
     <div className="space-y-2.5">
       <div className="flex items-center gap-2">
         <Network className="h-3.5 w-3.5 text-primary/80" />
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Sistema</p>
+        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">
+          Sistema
+        </p>
       </div>
       <div className="grid gap-2 sm:grid-cols-3">
         <SystemListColumn title="Componentes" items={system.components} />
@@ -210,11 +217,15 @@ function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
           <CaseBlock label="Enfoque">{item.approach}</CaseBlock>
           <SystemBlock system={item.system} />
           <div className="space-y-1.5 border-t border-border/35 pt-3">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Rol</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">
+              Rol
+            </p>
             <p className="text-small text-foreground/90">{item.role}</p>
           </div>
           <div className="space-y-1.5">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Resultado</p>
+            <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">
+              Resultado
+            </p>
             <p className="text-small text-foreground/90">{item.outcome}</p>
           </div>
           <p className="text-[11px] text-muted-foreground">{CREDIBILITY_NOTE}</p>
@@ -226,28 +237,43 @@ function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
 
 export function CasePreviewSection() {
   return (
-    <section>
-      <Container className="space-y-10 pt-8 pb-16 lg:pt-10 lg:pb-18">
-        <SectionHeading
-          title="Casos de estudio"
-          description="Trabajo en contexto corporativo y académico, documentado con enfoque operativo: problema real, sistema implementado, rol definido y resultados verificables."
-        />
-
-        <div className="grid gap-5 lg:grid-cols-3">
-          {CASE_STUDIES.map((item, index) => (
-            <CaseCard key={item.title} item={item} index={index} />
-          ))}
-        </div>
-
-        <MotionWrapper delay={0.28}>
-          <div className="rounded-xl border border-primary/25 bg-primary/10 p-6 shadow-glow-soft">
-            <p className="text-body font-medium text-foreground">
-              Cada caso describe decisiones de ingeniería en contexto real, sin inflar resultados ni atribuciones.
+    <>
+      <section>
+        <Container className="space-y-4 pt-8 pb-8 lg:pt-10 lg:pb-10">
+          <MotionWrapper className="space-y-4">
+            <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+              Casos de estudio
             </p>
+            <h1 className="max-w-4xl text-display-2 text-foreground sm:text-display-1">
+              Sistemas construidos en contexto real.
+            </h1>
+            <p className="max-w-3xl text-body text-muted-foreground">
+              Trabajo en contexto corporativo y académico, documentado con enfoque operativo:
+              problema real, sistema implementado, rol definido y resultados verificables.
+            </p>
+          </MotionWrapper>
+        </Container>
+      </section>
+
+      <section>
+        <Container className="space-y-10 pb-16 lg:pb-18">
+          <div className="grid gap-5 lg:grid-cols-3">
+            {CASE_STUDIES.map((item, index) => (
+              <CaseCard key={item.title} item={item} index={index} />
+            ))}
           </div>
-        </MotionWrapper>
-      </Container>
-    </section>
+
+          <MotionWrapper delay={0.28}>
+            <div className="rounded-xl border border-primary/25 bg-primary/10 p-6 shadow-glow-soft">
+              <p className="text-body font-medium text-foreground">
+                Cada caso describe decisiones de ingeniería en contexto real, sin inflar resultados
+                ni atribuciones.
+              </p>
+            </div>
+          </MotionWrapper>
+        </Container>
+      </section>
+    </>
   );
 }
 
