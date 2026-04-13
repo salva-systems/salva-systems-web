@@ -228,7 +228,7 @@ export function CasePreviewSection() {
     <section>
       <Container className="space-y-10 py-16 lg:py-18">
         <SectionHeading
-          title="Case Studies"
+          title="Casos de estudio"
           description="Trabajo en contexto corporativo y académico, documentado con enfoque operativo: problema real, sistema implementado, rol definido y resultados verificables."
         />
 
