@@ -88,7 +88,7 @@ export function HeroSection() {
             </h1>
             <p className="max-w-2xl text-body text-muted-foreground">{home.subheadline}</p>
             <div className="flex flex-wrap gap-3 pt-1">
-              <Button asChild size="lg" className="border border-primary/30 bg-primary/90 px-8 font-semibold tracking-[0.02em] text-primary-foreground shadow-[0_10px_24px_rgba(2,10,24,0.28)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/50 hover:bg-primary hover:shadow-[0_14px_30px_rgba(2,10,24,0.34)]">
+              <Button asChild size="lg" className="border border-primary/55 bg-[linear-gradient(180deg,rgba(9,20,38,0.96)_0%,rgba(9,20,38,0.92)_52%,rgba(0,214,255,0.16)_100%)] px-8 font-semibold tracking-[0.04em] text-primary-foreground shadow-[0_0_0_1px_rgba(43,232,255,0.12),0_14px_36px_rgba(2,10,24,0.44)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/80 hover:bg-[linear-gradient(180deg,rgba(11,24,44,0.98)_0%,rgba(11,24,44,0.94)_48%,rgba(0,214,255,0.2)_100%)] hover:shadow-[0_0_0_1px_rgba(43,232,255,0.24),0_18px_42px_rgba(2,10,24,0.56)]">
                 <Link href="/contact">{home.primaryCta}</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="hover:border-primary/45 hover:bg-primary/5">
@@ -183,7 +183,6 @@ export function HeroSection() {
     </section>
   );
 }
-
 
 
 
