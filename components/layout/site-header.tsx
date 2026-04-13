@@ -14,17 +14,25 @@ import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
 const LOGO_SRC = "/brand/logo-horizontal-white.png";
-// Keep this compact desktop lockup ratio for a precise/premium header presence.
 const LOGO_WIDTH = 150;
 const LOGO_HEIGHT = 31;
 const WHATSAPP_PHONE_DISPLAY = "+52 833 367 4769";
-// Scroll distance (px) before increasing header opacity/clarity.
 const SCROLL_OPACITY_THRESHOLD = 14;
 const HEADER_BLUR_DEFAULT = "blur(10px)";
 const HEADER_BLUR_SCROLLED = "blur(14px)";
-// Slide offsets (px) for mobile menu entry/exit.
 const MOBILE_MENU_OFFSET_X = 18;
 const MOBILE_MENU_OFFSET_Y = -6;
+
+function forceScrollTop() {
+  window.scrollTo(0, 0);
+  document.documentElement.scrollTop = 0;
+  document.body.scrollTop = 0;
+
+  const main = document.querySelector('[data-scroll-root="true"]');
+  if (main && "scrollTo" in main) {
+    (main as HTMLElement).scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }
+}
 
 function NavItem({
   href,
@@ -37,14 +45,25 @@ function NavItem({
   mobile?: boolean;
   onClick?: () => void;
 }) {
+  const handleClick = () => {
+    onClick?.();
+    requestAnimationFrame(() => {
+      forceScrollTop();
+    });
+    setTimeout(() => {
+      forceScrollTop();
+    }, 60);
+  };
+
   return (
     <Link
       href={href}
+      scroll
       className={clsx(
         "group relative rounded-md py-2 text-small text-foreground/85 transition-colors duration-300 hover:text-primary-strong",
         mobile ? "px-3 hover:bg-white/5" : "px-1",
       )}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <span>{label}</span>
       <span className="pointer-events-none absolute inset-x-1 bottom-0 h-px origin-center scale-x-0 bg-primary/70 transition-transform duration-300 group-hover:scale-x-100" />
@@ -98,7 +117,17 @@ export function SiteHeader() {
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
       <Container className="relative flex h-[4.5rem] items-center justify-between gap-4">
-        <Link href="/" className="inline-flex items-center py-1" aria-label="Salva Systems inicio">
+        <Link
+          href="/"
+          scroll
+          className="inline-flex items-center py-1"
+          aria-label="Salva Systems inicio"
+          onClick={() => {
+            requestAnimationFrame(() => {
+              forceScrollTop();
+            });
+          }}
+        >
           <Image
             src={LOGO_SRC}
             alt="Salva Systems"
@@ -109,7 +138,7 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav className="hidden items-center gap-6 lg:flex" aria-label="NavegaciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n principal">
+        <nav className="hidden items-center gap-6 lg:flex" aria-label="Navegación principal">
           {MARKETING_NAV_ITEMS.map((item) => (
             <NavItem key={item.href} href={item.href} label={item.label} />
           ))}
@@ -118,14 +147,24 @@ export function SiteHeader() {
         <div className="hidden items-center gap-2 md:flex">
           <WhatsAppLink />
           <Button asChild size="sm">
-            <Link href="/contact">Analizar mi negocio</Link>
+            <Link
+              href="/contact"
+              scroll
+              onClick={() => {
+                requestAnimationFrame(() => {
+                  forceScrollTop();
+                });
+              }}
+            >
+              Analizar mi negocio
+            </Link>
           </Button>
         </div>
 
         <button
           type="button"
           className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-border/45 bg-surface/70 text-muted-foreground transition-colors duration-300 hover:border-primary/45 hover:text-primary-strong md:hidden"
-          aria-label={isOpen ? "Cerrar menÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº" : "Abrir menÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Âº"}
+          aria-label={isOpen ? "Cerrar menú" : "Abrir menú"}
           aria-haspopup="true"
           aria-expanded={isOpen}
           aria-controls="mobile-navigation"
@@ -139,7 +178,7 @@ export function SiteHeader() {
             <motion.div
               id="mobile-navigation"
               role="navigation"
-              aria-label="NavegaciÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³n mÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Â ÃƒÂ¢Ã¢â€šÂ¬Ã¢â€žÂ¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â³vil"
+              aria-label="Navegación móvil"
               className="glass-card absolute inset-x-6 top-[4.5rem] rounded-xl p-4 md:hidden"
               initial={{ opacity: 0, x: MOBILE_MENU_OFFSET_X, y: MOBILE_MENU_OFFSET_Y }}
               animate={{ opacity: 1, x: 0, y: 0 }}
@@ -161,7 +200,19 @@ export function SiteHeader() {
               <div className="mt-3 flex flex-col gap-2">
                 <WhatsAppLink compact />
                 <Button asChild className="w-full" size="sm">
-                  <Link href="/contact" onClick={() => setIsOpen(false)}>
+                  <Link
+                    href="/contact"
+                    scroll
+                    onClick={() => {
+                      setIsOpen(false);
+                      requestAnimationFrame(() => {
+                        forceScrollTop();
+                      });
+                      setTimeout(() => {
+                        forceScrollTop();
+                      }, 60);
+                    }}
+                  >
                     Analizar mi negocio
                   </Link>
                 </Button>
