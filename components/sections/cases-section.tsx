@@ -20,6 +20,7 @@ type CaseStudyItem = {
   system: CaseSystem;
   role: string;
   outcome: string;
+  credibilityNote: string;
   visual: {
     heading: string;
     pillars: string[];
@@ -53,6 +54,7 @@ const CASE_STUDIES: CaseStudyItem[] = [
     role: "Rol principal en arquitectura de base de datos, estructura de información y coordinación técnica del desarrollo en equipo.",
     outcome:
       "Se consolidó la operación en un solo sistema, reduciendo fricción de seguimiento y mejorando la claridad de cumplimiento sin cambiar procesos de negocio de fondo de forma abrupta.",
+    credibilityNote: "Nota de credibilidad: caso documentado y contexto verificable.",
     visual: {
       heading: "Tablero interno",
       pillars: ["Capacitación", "Evaluación", "Documentación"],
@@ -86,6 +88,7 @@ const CASE_STUDIES: CaseStudyItem[] = [
       "Contribución técnica en desarrollo de pipelines, modelado de datos y mejora de procesos analíticos dentro de equipos globales.",
     outcome:
       "Se fortalecieron capacidades de datos para operación logística internacional, con mejor estructura para escalar análisis y decisiones sin prometer impactos fuera del alcance del rol.",
+    credibilityNote: "Nota de credibilidad: caso documentado y contexto verificable.",
     visual: {
       heading: "Pipeline global",
       pillars: ["Ingesta", "Modelado", "Consumo"],
@@ -118,6 +121,7 @@ const CASE_STUDIES: CaseStudyItem[] = [
       "Participación directa en diseño e implementación técnica del sistema (sensado, procesamiento y visualización), en colaboración con equipo multidisciplinario.",
     outcome:
       "El sistema se validó como prototipo funcional y fue aceptado para publicación/presentación en IEEE LARC-LARS 2025, respaldando su solidez técnica en contexto académico.",
+    credibilityNote: "Nota de credibilidad: caso documentado y contexto verificable.",
     visual: {
       heading: "Monitoreo continuo",
       pillars: ["Sensores", "Alertas", "Dashboard"],
@@ -215,7 +219,7 @@ function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
             <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Resultado</p>
             <p className="text-small text-foreground/90">{item.outcome}</p>
           </div>
-          <p className="text-[11px] text-muted-foreground">Nota de credibilidad: caso documentado y contexto verificable.</p>
+          <p className="text-[11px] text-muted-foreground">{item.credibilityNote}</p>
         </CardContent>
       </Card>
     </MotionWrapper>
