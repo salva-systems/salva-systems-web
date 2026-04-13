@@ -53,6 +53,11 @@ type WhatNotItem = {
   text: string;
 };
 
+type BackingItem = {
+  title: string;
+  detail: string;
+};
+
 type LocaleContent = {
   seo: {
     titleTemplate: string;
@@ -92,6 +97,11 @@ type LocaleContent = {
     headline: string;
     intro: string;
     items: WhatNotItem[];
+  };
+  backing: {
+    headline: string;
+    intro: string;
+    items: BackingItem[];
   };
   services: {
     headline: string;
@@ -229,6 +239,28 @@ const content: Record<Locale, LocaleContent> = {
         { text: "No hacemos marketing sin estructura" },
         { text: "No usamos plantillas" },
         { text: "No desaparecemos" },
+      ],
+    },
+    backing: {
+      headline: "Respaldo técnico y académico",
+      intro:
+        "Combinamos formación en ingeniería con experiencia práctica para diseñar e implementar sistemas confiables.",
+      items: [
+        {
+          title: "Base de ingeniería",
+          detail:
+            "Aplicamos fundamentos técnicos para estructurar soluciones mantenibles y orientadas a operación real.",
+        },
+        {
+          title: "Criterio profesional",
+          detail:
+            "Tomamos decisiones con contexto de negocio y disciplina técnica, evitando promesas exageradas.",
+        },
+        {
+          title: "Calidad verificable",
+          detail:
+            "Trabajamos con prácticas de validación continua para sostener consistencia y confiabilidad en cada entrega.",
+        },
       ],
     },
     services: {
@@ -510,6 +542,28 @@ const content: Record<Locale, LocaleContent> = {
         { text: "We do not run marketing without structure" },
         { text: "We do not use templates" },
         { text: "We do not disappear" },
+      ],
+    },
+    backing: {
+      headline: "Technical and academic backing",
+      intro:
+        "We combine engineering education with practical experience to design and implement reliable systems.",
+      items: [
+        {
+          title: "Engineering foundation",
+          detail:
+            "We apply technical fundamentals to structure maintainable solutions built for real operations.",
+        },
+        {
+          title: "Professional judgment",
+          detail:
+            "We make decisions with business context and technical discipline, avoiding exaggerated claims.",
+        },
+        {
+          title: "Verifiable quality",
+          detail:
+            "We follow continuous validation practices to maintain consistency and reliability in every delivery.",
+        },
       ],
     },
     services: {
