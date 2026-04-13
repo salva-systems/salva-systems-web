@@ -474,22 +474,34 @@ const content: Record<Locale, LocaleContent> = {
     },
     faq: {
       headline: "Preguntas frecuentes",
-      intro: "Respuestas rápidas para equipos que evalúan iniciar una colaboración.",
+      intro: "Respuestas directas para tomar una decisión con claridad.",
       items: [
         {
-          question: "¿Trabajáis con equipos internos?",
+          question: "¿Cuánto cuesta?",
           answer:
-            "Sí. Podemos integrarnos con tu equipo actual o liderar una célula externa coordinada.",
+            "Depende del problema. No trabajamos con precios fijos porque cada sistema es distinto. La valoración inicial es gratuita.",
         },
         {
-          question: "¿En cuánto tiempo se ve impacto?",
+          question: "¿Solo hacen páginas web?",
           answer:
-            "Normalmente en las primeras 4-6 semanas entregamos mejoras operativas visibles.",
+            "No. Una página es solo el punto de entrada. Nuestro enfoque es construir sistemas completos.",
         },
         {
-          question: "¿Incluís soporte tras lanzamiento?",
+          question: "¿Cuánto tiempo toma?",
           answer:
-            "Sí, ofrecemos operación continua, evolución funcional y soporte técnico por SLA.",
+            "Desde semanas hasta meses, dependiendo del nivel de solución.",
+        },
+        {
+          question: "¿Trabajan con negocios pequeños?",
+          answer: "Sí. De hecho, es donde más impacto generamos.",
+        },
+        {
+          question: "¿Dan soporte después?",
+          answer: "Sí. Aseguramos que el sistema funcione en operación real.",
+        },
+        {
+          question: "¿Necesito saber de tecnología?",
+          answer: "No. Nosotros traducimos todo a decisiones claras de negocio.",
         },
       ],
     },
@@ -815,22 +827,34 @@ const content: Record<Locale, LocaleContent> = {
     },
     faq: {
       headline: "Frequently asked questions",
-      intro: "Quick answers for teams evaluating a collaboration.",
+      intro: "Direct answers so you can decide with confidence.",
       items: [
         {
-          question: "Do you work with internal teams?",
+          question: "How much does it cost?",
           answer:
-            "Yes. We can integrate with your current team or lead an external delivery squad.",
+            "It depends on the problem. We do not use fixed pricing because every system is different. The initial assessment is free.",
         },
         {
-          question: "How soon can we expect impact?",
+          question: "Do you only build websites?",
           answer:
-            "In most engagements we deliver visible operational improvements within 4-6 weeks.",
+            "No. A website is only the entry point. Our focus is building complete systems.",
         },
         {
-          question: "Do you provide post-launch support?",
+          question: "How long does it take?",
           answer:
-            "Yes, we provide continuous operations, roadmap evolution, and SLA-backed support.",
+            "From weeks to months, depending on the level of solution.",
+        },
+        {
+          question: "Do you work with small businesses?",
+          answer: "Yes. In fact, that is where we often create the biggest impact.",
+        },
+        {
+          question: "Do you provide support after launch?",
+          answer: "Yes. We make sure the system works in real operations.",
+        },
+        {
+          question: "Do I need to know technology?",
+          answer: "No. We translate everything into clear business decisions.",
         },
       ],
     },
