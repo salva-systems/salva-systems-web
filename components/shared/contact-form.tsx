@@ -10,6 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { COMPANY } from "@/lib/constants/site";
 
 type ContactCopy = {
   name: string;
@@ -31,6 +32,7 @@ type ContactFormProps = {
 
 export function ContactForm({ copy }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
+  const whatsappUrl = COMPANY.whatsappUrl;
 
   const formSchema = z.object({
     name: z.string().min(2, copy.validation.name),
@@ -106,10 +108,17 @@ export function ContactForm({ copy }: ContactFormProps) {
           </Button>
 
           {submitted ? (
-            <p className="inline-flex items-center gap-2 text-sm text-primary-strong">
-              <CheckCircle2 className="h-4 w-4" />
-              {copy.success}
-            </p>
+            <div className="space-y-3 rounded-lg border border-primary/25 bg-primary/10 p-4">
+              <p className="inline-flex items-center gap-2 text-sm text-primary-strong">
+                <CheckCircle2 className="h-4 w-4" />
+                {copy.success}
+              </p>
+              <Button asChild variant="outline" className="hover:border-primary/45 hover:bg-primary/5">
+                <a href={whatsappUrl} target="_blank" rel="noreferrer">
+                  Continuar en WhatsApp
+                </a>
+              </Button>
+            </div>
           ) : null}
         </form>
       </CardContent>

@@ -5,9 +5,10 @@ export type Locale = (typeof SUPPORTED_LOCALES)[number];
 
 export const COMPANY = {
   name: "Salva Systems",
-  legalName: "Salva Systems S.L.",
+  legalName: "Salva Systems",
   domain: "https://salvasystems.com",
   email: "contacto@salvasystems.com",
-  phone: "+34 900 123 456",
-  city: "Madrid",
+  phone: "+52 833 367 4769",
+  city: "Tampico · Monterrey",
+  whatsappUrl: "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems",
 };
