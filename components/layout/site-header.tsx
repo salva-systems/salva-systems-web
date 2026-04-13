@@ -54,8 +54,7 @@ export function SiteHeader() {
         {isOpen ? (
           <div
             id="mobile-navigation"
-            role="dialog"
-            aria-modal="true"
+            role="navigation"
             aria-label="Navegación móvil"
             className="glass-card absolute left-6 right-6 top-[4.5rem] rounded-xl p-4 md:hidden"
           >
