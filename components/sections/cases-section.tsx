@@ -127,12 +127,18 @@ const CASE_STUDIES: CaseStudyItem[] = [
 
 const caseIcons = [Building2, Factory, Microscope];
 
-function CaseVisual({ item, icon: Icon }: { item: CaseStudyItem; icon: ComponentType<{ className?: string }> }) {
+function CaseVisual({
+  item,
+  icon: IconComponent,
+}: {
+  item: CaseStudyItem;
+  icon: ComponentType<{ className?: string }>;
+}) {
   return (
     <div className="rounded-lg border border-primary/25 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent p-3 shadow-glow-soft">
       <div className="mb-3 flex items-center justify-between">
         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">{item.visual.heading}</p>
-        <Icon className="h-4 w-4 text-primary/80" />
+        <IconComponent className="h-4 w-4 text-primary/80" />
       </div>
       <div className="grid gap-2 sm:grid-cols-3">
         {item.visual.pillars.map((pillar) => (
@@ -195,7 +201,7 @@ function SystemBlock({ system }: { system: CaseSystem }) {
 }
 
 function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
-  const Icon = caseIcons[index] ?? Building2;
+  const Icon = caseIcons[index % caseIcons.length] ?? Building2;
 
   return (
     <MotionWrapper delay={index * 0.08}>
