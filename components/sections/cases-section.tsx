@@ -163,6 +163,19 @@ function CaseBlock({ label, children }: { label: string; children: string }) {
   );
 }
 
+function SystemListColumn({ title, items }: { title: string; items: string[] }) {
+  return (
+    <div className="rounded-md border border-border/55 bg-surface/75 p-2.5">
+      <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">{title}</p>
+      <ul className="mt-2 space-y-1.5 text-[11px] text-muted-foreground">
+        {items.map((item) => (
+          <li key={item}>• {item}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
 function SystemBlock({ system }: { system: CaseSystem }) {
   return (
     <div className="space-y-2.5">
@@ -171,37 +184,16 @@ function SystemBlock({ system }: { system: CaseSystem }) {
         <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/75">Sistema</p>
       </div>
       <div className="grid gap-2 sm:grid-cols-3">
-        <div className="rounded-md border border-border/55 bg-surface/75 p-2.5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">Componentes</p>
-          <ul className="mt-2 space-y-1.5 text-[11px] text-muted-foreground">
-            {system.components.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-md border border-border/55 bg-surface/75 p-2.5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">Lógica</p>
-          <ul className="mt-2 space-y-1.5 text-[11px] text-muted-foreground">
-            {system.logic.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
-        <div className="rounded-md border border-border/55 bg-surface/75 p-2.5">
-          <p className="text-[10px] font-semibold uppercase tracking-[0.14em] text-foreground/85">Integración</p>
-          <ul className="mt-2 space-y-1.5 text-[11px] text-muted-foreground">
-            {system.integration.map((item) => (
-              <li key={item}>• {item}</li>
-            ))}
-          </ul>
-        </div>
+        <SystemListColumn title="Componentes" items={system.components} />
+        <SystemListColumn title="Lógica" items={system.logic} />
+        <SystemListColumn title="Integración" items={system.integration} />
       </div>
     </div>
   );
 }
 
 function CaseCard({ item, index }: { item: CaseStudyItem; index: number }) {
-  const Icon = caseIcons[index % caseIcons.length];
+  const Icon = caseIcons[index] ?? caseIcons[0];
 
   return (
     <MotionWrapper delay={index * 0.08}>
