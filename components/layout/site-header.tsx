@@ -14,8 +14,11 @@ import { MARKETING_NAV_ITEMS } from "@/lib/constants/layout";
 const WHATSAPP_URL =
   "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
 const LOGO_SRC = "/brand/logo-horizontal-white.png";
+const WHATSAPP_PHONE_DISPLAY = "+52 833 367 4769";
 // Scroll distance (px) before increasing header opacity/clarity.
 const SCROLL_THRESHOLD = 14;
+const HEADER_BLUR_DEFAULT = "blur(10px)";
+const HEADER_BLUR_SCROLLED = "blur(14px)";
 // Slide offsets (px) for mobile menu entry/exit.
 const MOBILE_MENU_OFFSET_X = 18;
 const MOBILE_MENU_OFFSET_Y = -6;
@@ -59,7 +62,7 @@ function WhatsAppLink({ compact = false }: { compact?: boolean }) {
       aria-label="Contactar por WhatsApp"
     >
       <MessageCircle className="h-4 w-4" />
-      <span className="hidden lg:inline">+52 833 367 4769</span>
+      <span className="hidden lg:inline">{WHATSAPP_PHONE_DISPLAY}</span>
       <span className="lg:hidden">WhatsApp</span>
     </a>
   );
@@ -87,7 +90,7 @@ export function SiteHeader() {
           : "border-border/35 bg-background/68",
       )}
       animate={{
-        backdropFilter: isScrolled ? "blur(14px)" : "blur(10px)",
+        backdropFilter: isScrolled ? HEADER_BLUR_SCROLLED : HEADER_BLUR_DEFAULT,
       }}
       transition={{ duration: 0.25, ease: "easeOut" }}
     >
