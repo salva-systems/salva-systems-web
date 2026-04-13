@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 
 import { MarketingShell } from "@/components/layout/marketing-shell";
-import { PageTransition } from "@/components/layout/page-transition";
 import { COMPANY } from "@/lib/constants/site";
 import { getContent } from "@/lib/content/site";
 
@@ -45,9 +44,5 @@ export default function MarketingLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return (
-    <MarketingShell>
-      <PageTransition>{children}</PageTransition>
-    </MarketingShell>
-  );
+  return <MarketingShell>{children}</MarketingShell>;
 }
