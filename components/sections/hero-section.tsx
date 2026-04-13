@@ -1,24 +1,62 @@
+"use client";
+
 import Link from "next/link";
-import { Activity, CheckCircle2, GitBranch, Settings2 } from "lucide-react";
+import { motion } from "framer-motion";
+import { Activity, BarChart3, CheckCircle2, Database, GitBranch, Settings2 } from "lucide-react";
 
 import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/shared/motion-wrapper";
-import { COMPANY } from "@/lib/constants/site";
 import { getContent } from "@/lib/content/site";
 
 export function HeroSection() {
   const { home } = getContent();
-  const whatsappUrl = COMPANY.whatsappUrl;
+  const whatsappUrl = "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
+
+  const nodePositions = [
+    { top: "16%", left: "12%" },
+    { top: "28%", left: "68%" },
+    { top: "44%", left: "34%" },
+    { top: "58%", left: "80%" },
+    { top: "74%", left: "20%" },
+  ];
 
   return (
-    <section>
+    <section className="relative isolate overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 -z-10">
+        <div className="absolute inset-0 bg-[radial-gradient(75%_85%_at_15%_10%,rgba(0,214,255,0.18),transparent_56%),radial-gradient(55%_65%_at_86%_8%,rgba(0,156,255,0.18),transparent_64%),linear-gradient(180deg,rgba(7,15,38,0.94)_0%,rgba(3,8,22,0.98)_60%,rgba(1,5,14,1)_100%)]" />
+        <motion.div
+          className="absolute inset-x-0 top-0 h-[72%] bg-[linear-gradient(to_right,rgba(120,170,230,0.11)_1px,transparent_1px),linear-gradient(to_bottom,rgba(120,170,230,0.11)_1px,transparent_1px)] bg-[size:52px_52px] [mask-image:radial-gradient(ellipse_at_center,black_38%,transparent_92%)]"
+          animate={{ opacity: [0.22, 0.32, 0.24] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute -top-24 right-[11%] h-72 w-72 rounded-full border border-primary/12"
+          animate={{ y: [0, 14, 0], rotate: [0, 6, 0] }}
+          transition={{ duration: 18, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute left-[18%] top-[42%] h-56 w-56 rounded-full border border-primary/10"
+          animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
+          transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+        />
+        {nodePositions.map((node, index) => (
+          <motion.span
+            key={`${node.left}-${node.top}`}
+            className="absolute h-1.5 w-1.5 rounded-full bg-primary/75 shadow-[0_0_12px_rgba(0,214,255,0.75)]"
+            style={node}
+            animate={{ opacity: [0.35, 1, 0.35], scale: [1, 1.26, 1] }}
+            transition={{ duration: 2.8 + index * 0.55, repeat: Infinity, ease: "easeInOut" }}
+          />
+        ))}
+      </div>
+
       <Container className="py-22 lg:py-26">
         <div className="grid items-start gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)] lg:gap-12">
-          <MotionWrapper className="space-y-6">
+          <MotionWrapper className="space-y-7">
             <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">{home.eyebrow}</p>
-            <h1 className="text-display-2 text-foreground sm:text-display-1">
+            <h1 className="max-w-3xl text-display-2 text-foreground sm:text-display-1">
               {home.titleLines.map((line) => (
                 <span key={line} className="block">
                   {line}
@@ -26,60 +64,96 @@ export function HeroSection() {
               ))}
             </h1>
             <p className="max-w-2xl text-body text-muted-foreground">{home.subheadline}</p>
-            <p className="max-w-2xl text-small text-muted-foreground">{home.support}</p>
-            <div className="flex flex-wrap gap-3">
+            <div className="flex flex-wrap gap-3 pt-1">
               <Button asChild size="lg" className="shadow-glow-soft">
-                <Link href="/contact">{home.primaryCta}</Link>
+                <Link href="/contact">Analizar mi negocio</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="hover:border-primary/45 hover:bg-primary/5">
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
-                  {home.secondaryCta}
+                  Hablar por WhatsApp
                 </a>
               </Button>
             </div>
-            <p className="text-xs font-medium tracking-[0.08em] text-muted-foreground">{home.trust}</p>
+            <div className="space-y-1.5">
+              <p className="text-small text-muted-foreground">
+                La valoración es gratuita. Te contactamos en menos de 24 horas.
+              </p>
+              <p className="text-small text-muted-foreground">
+                Podemos hacerlo por llamada, videollamada o incluso por WhatsApp.
+              </p>
+            </div>
           </MotionWrapper>
 
           <MotionWrapper className="lg:pt-3" delay={0.08}>
-            <Card className="overflow-hidden">
-              <CardHeader className="border-b border-border/45 pb-4">
-                <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
-                  {home.systemUi.badge}
-                </p>
-              </CardHeader>
-              <CardContent className="space-y-4 p-5">
-                <div className="grid gap-3 sm:grid-cols-2">
-                  <div className="rounded-lg border border-border/50 bg-surface/65 p-3">
-                    <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                      <Activity className="h-3.5 w-3.5 text-primary/80" />
-                      {home.systemUi.dailyOpsLabel}
-                    </p>
-                    <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.dailyOpsValue}</p>
-                  </div>
-                  <div className="rounded-lg border border-border/50 bg-surface/65 p-3">
-                    <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                      <Settings2 className="h-3.5 w-3.5 text-primary/80" />
-                      {home.systemUi.automationLabel}
-                    </p>
-                    <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.automationValue}</p>
-                  </div>
-                </div>
-                <div className="rounded-lg border border-border/50 bg-surface/65 p-4">
-                  <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
-                    <GitBranch className="h-3.5 w-3.5 text-primary/80" />
-                    {home.systemUi.flowLabel}
+            <motion.div
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <Card className="overflow-hidden border-primary/20 bg-surface/65">
+                <CardHeader className="border-b border-border/45 pb-4">
+                  <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/85">
+                    {home.systemUi.badge}
                   </p>
-                  <ul className="mt-3 space-y-2 text-sm text-foreground">
-                    {home.systemUi.flowItems.map((item) => (
-                      <li key={item} className="flex items-center gap-2">
-                        <CheckCircle2 className="h-4 w-4 text-primary/80" />
-                        {item}
-                      </li>
+                </CardHeader>
+                <CardContent className="space-y-4 p-5">
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    <motion.div
+                      className="rounded-lg border border-border/50 bg-surface/70 p-3"
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <Activity className="h-3.5 w-3.5 text-primary/80" />
+                        {home.systemUi.dailyOpsLabel}
+                      </p>
+                      <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.dailyOpsValue}</p>
+                    </motion.div>
+                    <motion.div
+                      className="rounded-lg border border-border/50 bg-surface/70 p-3"
+                      whileHover={{ y: -2 }}
+                      transition={{ duration: 0.2 }}
+                    >
+                      <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                        <Settings2 className="h-3.5 w-3.5 text-primary/80" />
+                        {home.systemUi.automationLabel}
+                      </p>
+                      <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.automationValue}</p>
+                    </motion.div>
+                  </div>
+                  <div className="rounded-lg border border-border/50 bg-surface/70 p-4">
+                    <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
+                      <GitBranch className="h-3.5 w-3.5 text-primary/80" />
+                      {home.systemUi.flowLabel}
+                    </p>
+                    <ul className="mt-3 space-y-2.5 text-sm text-foreground">
+                      {home.systemUi.flowItems.map((item) => (
+                        <li key={item} className="flex items-center gap-2">
+                          <CheckCircle2 className="h-4 w-4 text-primary/80" />
+                          {item}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="grid gap-3 sm:grid-cols-3">
+                    {[Database, Activity, BarChart3].map((Icon, index) => (
+                      <motion.div
+                        key={index}
+                        className="relative rounded-lg border border-primary/20 bg-surface/70 p-3"
+                        animate={{ opacity: [0.7, 1, 0.7] }}
+                        transition={{ duration: 3 + index, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        <Icon className="h-4 w-4 text-primary/80" />
+                        <motion.div
+                          className="mt-3 h-[2px] rounded-full bg-primary/50"
+                          animate={{ width: ["22%", "84%", "38%"] }}
+                          transition={{ duration: 4 + index * 0.8, repeat: Infinity, ease: "easeInOut" }}
+                        />
+                      </motion.div>
                     ))}
-                  </ul>
-                </div>
-              </CardContent>
-            </Card>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
           </MotionWrapper>
         </div>
       </Container>
