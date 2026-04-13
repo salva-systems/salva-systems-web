@@ -46,7 +46,7 @@ export function HeroSection() {
         />
         {NODE_POSITIONS.map((node, index) => (
           <motion.span
-            key={`${node.left}-${node.top}`}
+            key={index}
             className="absolute h-1.5 w-1.5 rounded-full bg-primary/75 shadow-[0_0_12px_rgba(0,214,255,0.75)]"
             style={node}
             animate={{ opacity: [0.35, 1, 0.35], scale: [1, 1.26, 1] }}
@@ -140,7 +140,7 @@ export function HeroSection() {
                   <div className="grid gap-3 sm:grid-cols-3">
                     {SYSTEM_ICONS.map((Icon, index) => (
                       <motion.div
-                        key={Icon.displayName ?? Icon.name}
+                        key={index}
                         className="relative rounded-lg border border-primary/20 bg-surface/70 p-3"
                         animate={{ opacity: [0.7, 1, 0.7] }}
                         transition={{ duration: 3 + index, repeat: Infinity, ease: "easeInOut" }}
