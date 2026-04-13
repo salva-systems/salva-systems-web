@@ -39,9 +39,14 @@ type TeamMember = {
   subtext: string;
 };
 
-type TechnicalPillar = {
+type TechnicalItem = {
   title: string;
   detail: string;
+};
+
+type TechnicalStackGroup = {
+  title: string;
+  items: string[];
 };
 
 type ProblemSignal = {
@@ -131,7 +136,15 @@ type LocaleContent = {
   technical: {
     headline: string;
     intro: string;
-    pillars: TechnicalPillar[];
+    architectureHeading: string;
+    architecturePoints: TechnicalItem[];
+    stackHeading: string;
+    stackGroups: TechnicalStackGroup[];
+    dataApproachHeading: string;
+    dataApproach: string[];
+    engineeringPrinciplesHeading: string;
+    engineeringPrinciples: string[];
+    closing: string;
   };
   faq: {
     headline: string;
@@ -403,26 +416,61 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     technical: {
-      headline: "Base técnica preparada para crecer",
+      headline: "Cómo construimos sistemas digitales",
       intro:
-        "Nuestras decisiones de arquitectura priorizan mantenibilidad, seguridad y velocidad de entrega.",
-      pillars: [
+        "Esta sección está pensada para perfiles técnicos que quieren entender cómo trabajamos realmente.",
+      architectureHeading: "Pensamiento de arquitectura",
+      architecturePoints: [
         {
-          title: "App Router y Server Components",
+          title: "Sistemas por encima de features",
           detail:
-            "Separación clara entre renderizado servidor/cliente para mejorar rendimiento y coste operativo.",
+            "Diseñamos capacidades completas de operación, no piezas aisladas. Cada funcionalidad se evalúa por su impacto en el sistema completo.",
         },
         {
-          title: "Diseño modular",
+          title: "Diseño centrado en datos",
           detail:
-            "Componentes reutilizables, límites explícitos entre dominios y bajo acoplamiento.",
+            "Partimos del modelo de datos y los flujos de información para definir procesos, reglas y APIs con consistencia desde el inicio.",
         },
         {
-          title: "Calidad automatizada",
+          title: "Mentalidad de escalabilidad",
           detail:
-            "Validaciones de tipo estrictas, linting y pipelines de build para prevenir regresiones.",
+            "Tomamos decisiones que mantienen rendimiento, mantenibilidad y costos bajo control cuando aumenta el volumen de usuarios y operaciones.",
         },
       ],
+      stackHeading: "Stack",
+      stackGroups: [
+        {
+          title: "Frontend",
+          items: ["Next.js", "TypeScript"],
+        },
+        {
+          title: "Backend",
+          items: ["Supabase", "APIs"],
+        },
+        {
+          title: "Data",
+          items: ["SQL", "Modelado de datos", "Pipelines"],
+        },
+        {
+          title: "Cloud",
+          items: ["AWS", "Azure"],
+        },
+      ],
+      dataApproachHeading: "Enfoque de datos",
+      dataApproach: [
+        "Recolectamos datos operativos en los puntos donde realmente se generan eventos críticos.",
+        "Estructuramos la información para que el negocio pueda consultar estado, trazabilidad y cuellos de botella sin ambigüedad.",
+        "Construimos dashboards orientados a decisiones, no solo a visualización.",
+        "Conectamos métricas con acciones concretas para mejorar tiempos, costos y confiabilidad.",
+      ],
+      engineeringPrinciplesHeading: "Principios de ingeniería",
+      engineeringPrinciples: [
+        "Modularidad",
+        "Escalabilidad",
+        "Arquitectura limpia",
+        "Decisiones aterrizadas a restricciones reales de tiempo, presupuesto y operación",
+      ],
+      closing: "We build systems that are meant to operate, not just to exist.",
     },
     faq: {
       headline: "Preguntas frecuentes",
@@ -709,26 +757,61 @@ const content: Record<Locale, LocaleContent> = {
       ],
     },
     technical: {
-      headline: "Technical foundation ready to scale",
+      headline: "How we build digital systems",
       intro:
-        "Our architecture decisions prioritize maintainability, security, and delivery speed.",
-      pillars: [
+        "This section is designed for technical profiles who want to understand how we actually work.",
+      architectureHeading: "Architecture Thinking",
+      architecturePoints: [
         {
-          title: "App Router and Server Components",
+          title: "Systems over features",
           detail:
-            "Clear client/server rendering boundaries to optimize performance and operating cost.",
+            "We design complete operational capabilities, not isolated pieces. Every feature is evaluated by its impact on the full system.",
         },
         {
-          title: "Modular design",
+          title: "Data-centric design",
           detail:
-            "Reusable components, explicit domain boundaries, and low-coupling composition.",
+            "We start from data models and information flows to define processes, rules, and APIs with consistency from day one.",
         },
         {
-          title: "Automated quality",
+          title: "Scalability mindset",
           detail:
-            "Strict typing, linting, and build pipelines to prevent regressions before release.",
+            "We make decisions that keep performance, maintainability, and costs under control as users and operations grow.",
         },
       ],
+      stackHeading: "Stack",
+      stackGroups: [
+        {
+          title: "Frontend",
+          items: ["Next.js", "TypeScript"],
+        },
+        {
+          title: "Backend",
+          items: ["Supabase", "APIs"],
+        },
+        {
+          title: "Data",
+          items: ["SQL", "Data modeling", "Pipelines"],
+        },
+        {
+          title: "Cloud",
+          items: ["AWS", "Azure"],
+        },
+      ],
+      dataApproachHeading: "Data Approach",
+      dataApproach: [
+        "We collect operational data where critical events are actually generated.",
+        "We structure information so teams can inspect status, traceability, and bottlenecks without ambiguity.",
+        "We build dashboards for decisions, not just visualization.",
+        "We connect metrics to concrete actions that improve time, cost, and reliability.",
+      ],
+      engineeringPrinciplesHeading: "Engineering Principles",
+      engineeringPrinciples: [
+        "Modularity",
+        "Scalability",
+        "Clean architecture",
+        "Decisions grounded in real constraints of time, budget, and operations",
+      ],
+      closing: "We build systems that are meant to operate, not just to exist.",
     },
     faq: {
       headline: "Frequently asked questions",
