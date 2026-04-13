@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -99,7 +99,7 @@ export function HeroSection() {
             </div>
             <div className="space-y-1.5">
               <p className="text-small text-muted-foreground">
-                La valoraciÃ³n es gratuita. Te contactamos en menos de 24 horas.
+                La valoración es gratuita. Te contactamos en menos de 24 horas.
               </p>
               <p className="text-small text-muted-foreground">
                 Podemos hacerlo por llamada, videollamada o incluso por WhatsApp.
