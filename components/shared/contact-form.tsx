@@ -74,7 +74,7 @@ export function ContactForm({ copy }: ContactFormProps) {
               {copy.name}
             </label>
             <Input id="name" {...register("name")} aria-invalid={Boolean(errors.name)} />
-            {errors.name ? <p className="text-sm text-red-600">{errors.name.message}</p> : null}
+            {errors.name ? <p className="text-sm text-red-400">{errors.name.message}</p> : null}
           </div>
 
           <div className="space-y-2">
@@ -82,7 +82,7 @@ export function ContactForm({ copy }: ContactFormProps) {
               {copy.email}
             </label>
             <Input id="email" type="email" {...register("email")} aria-invalid={Boolean(errors.email)} />
-            {errors.email ? <p className="text-sm text-red-600">{errors.email.message}</p> : null}
+            {errors.email ? <p className="text-sm text-red-400">{errors.email.message}</p> : null}
           </div>
 
           <div className="space-y-2">
@@ -97,7 +97,7 @@ export function ContactForm({ copy }: ContactFormProps) {
               {copy.message}
             </label>
             <Textarea id="message" {...register("message")} aria-invalid={Boolean(errors.message)} />
-            {errors.message ? <p className="text-sm text-red-600">{errors.message.message}</p> : null}
+            {errors.message ? <p className="text-sm text-red-400">{errors.message.message}</p> : null}
           </div>
 
           <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
@@ -106,7 +106,7 @@ export function ContactForm({ copy }: ContactFormProps) {
           </Button>
 
           {submitted ? (
-            <p className="inline-flex items-center gap-2 text-sm text-emerald-700">
+            <p className="inline-flex items-center gap-2 text-sm text-primary-strong">
               <CheckCircle2 className="h-4 w-4" />
               {copy.success}
             </p>

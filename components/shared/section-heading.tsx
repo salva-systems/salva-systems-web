@@ -9,10 +9,10 @@ type SectionHeadingProps = {
 export function SectionHeading({ title, description, className }: SectionHeadingProps) {
   return (
     <header className={cn("mx-auto max-w-3xl space-y-3 text-center", className)}>
-      <h1 className="text-3xl font-semibold tracking-tight text-zinc-950 sm:text-4xl dark:text-zinc-50">
+      <h1 className="text-heading-1 tracking-tight text-foreground sm:text-display-2">
         {title}
       </h1>
-      <p className="text-base text-zinc-600 dark:text-zinc-300">{description}</p>
+      <p className="text-body text-muted-foreground">{description}</p>
     </header>
   );
 }

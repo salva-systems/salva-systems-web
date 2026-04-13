@@ -7,9 +7,10 @@ type MarketingShellProps = {
 
 export function MarketingShell({ children }: MarketingShellProps) {
   return (
-    <div className="flex min-h-screen flex-col bg-white dark:bg-zinc-950">
+    <div className="relative flex min-h-screen flex-col bg-background">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_420px_at_15%_5%,rgba(0,214,255,0.12),transparent_58%)]" />
       <SiteHeader />
-      <main className="flex-1">{children}</main>
+      <main className="relative z-10 flex-1">{children}</main>
       <SiteFooter />
     </div>
   );
