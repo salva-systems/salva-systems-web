@@ -350,6 +350,7 @@ const content: Record<Locale, LocaleContent> = {
             "Cooper / T. Smith · Experiencia empresarial",
             "Salva Exclusive Caps · Emprendimiento",
           ],
+          credentials: [],
           subtext: "Ingeniería Industrial · Tecnológico de Monterrey",
         },
         {
@@ -364,6 +365,7 @@ const content: Record<Locale, LocaleContent> = {
             "LARC & LARS 2025 · Competencias internacionales",
             "IPECO · Maintenance Intern",
           ],
+          credentials: [],
           subtext: "Ingeniería en Mecatrónica · Tecnológico de Monterrey",
         },
       ],
@@ -632,6 +634,7 @@ const content: Record<Locale, LocaleContent> = {
             "Cooper / T. Smith · Business experience",
             "Salva Exclusive Caps · Entrepreneurship",
           ],
+          credentials: [],
           subtext: "B.S. in Industrial Engineering · Tecnológico de Monterrey",
         },
         {
@@ -646,6 +649,7 @@ const content: Record<Locale, LocaleContent> = {
             "LARC & LARS 2025 · International competitions",
             "IPECO · Maintenance Intern",
           ],
+          credentials: [],
           subtext: "B.S. in Mechatronics Engineering · Tecnológico de Monterrey",
         },
       ],
