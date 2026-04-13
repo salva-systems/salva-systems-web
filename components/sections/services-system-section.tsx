@@ -165,7 +165,7 @@ export function ServicesSystemSection() {
       <section>
         <Container className="space-y-8 py-16 lg:py-18">
           <MotionWrapper className="space-y-3 text-center">
-            <h2 className="text-heading-1 tracking-tight text-foreground sm:text-display-2">Cómo trabajamos</h2>
+            <h2 className="text-heading-1 tracking-tight text-foreground sm:text-display-2">Nuestro proceso</h2>
           </MotionWrapper>
 
           <div className="grid gap-4 md:grid-cols-5">
