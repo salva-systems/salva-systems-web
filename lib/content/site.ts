@@ -46,6 +46,10 @@ type ProblemSignal = {
   detail: string;
 };
 
+type WhatNotItem = {
+  text: string;
+};
+
 type LocaleContent = {
   seo: {
     titleTemplate: string;
@@ -80,6 +84,11 @@ type LocaleContent = {
       detail: string;
     };
     transition: string;
+  };
+  whatNot: {
+    headline: string;
+    intro: string;
+    items: WhatNotItem[];
   };
   services: {
     headline: string;
@@ -208,6 +217,16 @@ const content: Record<Locale, LocaleContent> = {
       },
       transition:
         "Por eso el siguiente paso no es sumar más herramientas, sino ordenar la operación en un sistema conectado.",
+    },
+    whatNot: {
+      headline: "Lo que no hacemos",
+      intro: "Así nos posicionamos frente a agencias tradicionales y entregas superficiales.",
+      items: [
+        { text: "No vendemos páginas aisladas" },
+        { text: "No hacemos marketing sin estructura" },
+        { text: "No usamos plantillas" },
+        { text: "No desaparecemos" },
+      ],
     },
     services: {
       headline: "Servicios para acelerar entrega sin deuda técnica",
@@ -451,6 +470,17 @@ const content: Record<Locale, LocaleContent> = {
       },
       transition:
         "That is why the next step is not adding more tools, but aligning operations in one connected system.",
+    },
+    whatNot: {
+      headline: "What we do not do",
+      intro:
+        "This is how we position ourselves against traditional agencies and shallow one-off deliverables.",
+      items: [
+        { text: "We do not sell isolated pages" },
+        { text: "We do not run marketing without structure" },
+        { text: "We do not use templates" },
+        { text: "We do not disappear" },
+      ],
     },
     services: {
       headline: "Services that increase delivery speed without technical debt",
