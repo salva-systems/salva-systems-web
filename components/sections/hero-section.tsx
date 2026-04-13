@@ -8,19 +8,22 @@ import { Container } from "@/components/layout/container";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { MotionWrapper } from "@/components/shared/motion-wrapper";
+import { COMPANY } from "@/lib/constants/site";
 import { getContent } from "@/lib/content/site";
+
+const NODE_POSITIONS = [
+  { top: "16%", left: "12%" },
+  { top: "28%", left: "68%" },
+  { top: "44%", left: "34%" },
+  { top: "58%", left: "80%" },
+  { top: "74%", left: "20%" },
+];
+
+const SYSTEM_ICONS = [Database, Activity, BarChart3];
 
 export function HeroSection() {
   const { home } = getContent();
-  const whatsappUrl = "https://wa.me/528333674769?text=Hola,%20quiero%20analizar%20mi%20negocio%20con%20Salva%20Systems";
-
-  const nodePositions = [
-    { top: "16%", left: "12%" },
-    { top: "28%", left: "68%" },
-    { top: "44%", left: "34%" },
-    { top: "58%", left: "80%" },
-    { top: "74%", left: "20%" },
-  ];
+  const whatsappUrl = COMPANY.whatsappUrl;
 
   return (
     <section className="relative isolate overflow-hidden">
@@ -41,7 +44,7 @@ export function HeroSection() {
           animate={{ y: [0, -10, 0], rotate: [0, -5, 0] }}
           transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
         />
-        {nodePositions.map((node, index) => (
+        {NODE_POSITIONS.map((node, index) => (
           <motion.span
             key={`${node.left}-${node.top}`}
             className="absolute h-1.5 w-1.5 rounded-full bg-primary/75 shadow-[0_0_12px_rgba(0,214,255,0.75)]"
@@ -66,11 +69,11 @@ export function HeroSection() {
             <p className="max-w-2xl text-body text-muted-foreground">{home.subheadline}</p>
             <div className="flex flex-wrap gap-3 pt-1">
               <Button asChild size="lg" className="shadow-glow-soft">
-                <Link href="/contact">Analizar mi negocio</Link>
+                <Link href="/contact">{home.primaryCta}</Link>
               </Button>
               <Button asChild variant="outline" size="lg" className="hover:border-primary/45 hover:bg-primary/5">
                 <a href={whatsappUrl} target="_blank" rel="noreferrer">
-                  Hablar por WhatsApp
+                  {home.secondaryCta}
                 </a>
               </Button>
             </div>
@@ -135,7 +138,7 @@ export function HeroSection() {
                     </ul>
                   </div>
                   <div className="grid gap-3 sm:grid-cols-3">
-                    {[Database, Activity, BarChart3].map((Icon, index) => (
+                    {SYSTEM_ICONS.map((Icon, index) => (
                       <motion.div
                         key={index}
                         className="relative rounded-lg border border-primary/20 bg-surface/70 p-3"
