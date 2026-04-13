@@ -34,6 +34,11 @@ type TechnicalPillar = {
   detail: string;
 };
 
+type ProblemSignal = {
+  title: string;
+  detail: string;
+};
+
 type LocaleContent = {
   seo: {
     titleTemplate: string;
@@ -58,6 +63,16 @@ type LocaleContent = {
       flowLabel: string;
       flowItems: string[];
     };
+  };
+  problem: {
+    headline: string;
+    intro: string;
+    items: ProblemSignal[];
+    consequence: {
+      title: string;
+      detail: string;
+    };
+    transition: string;
   };
   services: {
     headline: string;
@@ -146,6 +161,36 @@ const content: Record<Locale, LocaleContent> = {
           "Decisiones con contexto",
         ],
       },
+    },
+    problem: {
+      headline: "Si hoy operas con Excel, WhatsApp y tareas manuales, no estás solo.",
+      intro:
+        "Es una etapa común cuando el negocio crece más rápido que los procesos. El problema aparece cuando ya no puedes ver todo con claridad.",
+      items: [
+        {
+          title: "Todo vive en Excel",
+          detail: "Versiones distintas, datos duplicados y dificultad para saber cuál es el archivo correcto.",
+        },
+        {
+          title: "Pedidos por WhatsApp",
+          detail: "La información llega rápido, pero se pierde contexto y el seguimiento depende de cada persona.",
+        },
+        {
+          title: "Procesos manuales",
+          detail: "Copiar y pegar entre herramientas consume tiempo y aumenta errores en tareas repetitivas.",
+        },
+        {
+          title: "Falta de control",
+          detail: "Sin trazabilidad ni estado en tiempo real, decidir se vuelve más lento y más incierto.",
+        },
+      ],
+      consequence: {
+        title: "La consecuencia es simple: operas con esfuerzo alto y visibilidad baja.",
+        detail:
+          "Y cuando no hay visibilidad, cualquier crecimiento añade fricción, retrabajo y más dependencia de apagar urgencias.",
+      },
+      transition:
+        "Por eso el siguiente paso no es sumar más herramientas, sino ordenar la operación en un sistema conectado.",
     },
     services: {
       headline: "Servicios para acelerar entrega sin deuda técnica",
@@ -323,6 +368,36 @@ const content: Record<Locale, LocaleContent> = {
         flowLabel: "Connected flow",
         flowItems: ["Centralized data", "Real-time tracking", "Decisions with context"],
       },
+    },
+    problem: {
+      headline: "If you run operations with Excel, WhatsApp, and manual work, you’re not alone.",
+      intro:
+        "It is a common stage when the business grows faster than processes. The risk starts when visibility falls behind.",
+      items: [
+        {
+          title: "Everything lives in spreadsheets",
+          detail: "Multiple versions, duplicated data, and no clear source of truth for day-to-day decisions.",
+        },
+        {
+          title: "Orders managed in WhatsApp",
+          detail: "Communication is quick, but context gets lost and follow-up depends on individual effort.",
+        },
+        {
+          title: "Manual workflows",
+          detail: "Copying data between tools slows teams down and creates recurring operational mistakes.",
+        },
+        {
+          title: "Lack of control",
+          detail: "Without traceability and real-time status, prioritization and response become reactive.",
+        },
+      ],
+      consequence: {
+        title: "The result is straightforward: high effort with low operational visibility.",
+        detail:
+          "And with low visibility, growth adds friction, rework, and constant urgency handling across the team.",
+      },
+      transition:
+        "That is why the next step is not adding more tools, but aligning operations in one connected system.",
     },
     services: {
       headline: "Services that increase delivery speed without technical debt",
