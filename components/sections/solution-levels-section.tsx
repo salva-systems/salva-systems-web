@@ -30,15 +30,15 @@ export function SolutionLevelsSection() {
                   </CardHeader>
                   <CardContent className="space-y-4">
                     <div className="space-y-1.5">
-                      <p className="text-sm font-semibold text-foreground">Qué resuelve</p>
+                      <p className="text-sm font-semibold text-foreground">{solutionLevels.labels.solves}</p>
                       <p className="text-small text-muted-foreground">{item.solves}</p>
                     </div>
                     <div className="space-y-1.5">
-                      <p className="text-sm font-semibold text-foreground">Qué incluye</p>
+                      <p className="text-sm font-semibold text-foreground">{solutionLevels.labels.includes}</p>
                       <p className="text-small text-muted-foreground">{item.includes}</p>
                     </div>
                     <div className="space-y-1.5">
-                      <p className="text-sm font-semibold text-foreground">Para quién es</p>
+                      <p className="text-sm font-semibold text-foreground">{solutionLevels.labels.forWho}</p>
                       <p className="text-small text-muted-foreground">{item.forWho}</p>
                     </div>
                   </CardContent>

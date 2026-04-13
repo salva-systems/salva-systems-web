@@ -89,6 +89,11 @@ type LocaleContent = {
   solutionLevels: {
     headline: string;
     intro: string;
+    labels: {
+      solves: string;
+      includes: string;
+      forWho: string;
+    };
     items: SolutionLevel[];
   };
   cases: {
@@ -235,6 +240,11 @@ const content: Record<Locale, LocaleContent> = {
       headline: "Niveles de solución según tu etapa",
       intro:
         "Cada nivel organiza tu operación con más estructura. Empezamos donde estás hoy y avanzamos con claridad.",
+      labels: {
+        solves: "Qué resuelve",
+        includes: "Qué incluye",
+        forWho: "Para quién es",
+      },
       items: [
         {
           title: "Presencia Digital",
@@ -473,6 +483,11 @@ const content: Record<Locale, LocaleContent> = {
       headline: "Solution levels by business stage",
       intro:
         "Each level adds clearer structure to operations. We start from your current stage and build forward.",
+      labels: {
+        solves: "What it solves",
+        includes: "What it includes",
+        forWho: "Who it is for",
+      },
       items: [
         {
           title: "Digital Presence",
