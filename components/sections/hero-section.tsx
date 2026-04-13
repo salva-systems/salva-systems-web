@@ -20,7 +20,7 @@ export function HeroSection() {
             <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">{home.eyebrow}</p>
             <h1 className="text-display-2 text-foreground sm:text-display-1">
               {home.titleLines.map((line, index) => (
-                <span key={`${line}-${index}`} className="block">
+                <span key={index} className="block">
                   {line}
                 </span>
               ))}
@@ -44,7 +44,7 @@ export function HeroSection() {
             <Card className="overflow-hidden">
               <CardHeader className="border-b border-border/45 pb-4">
                 <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/80">
-                  System UI · Operación en control
+                  {home.systemUi.badge}
                 </p>
               </CardHeader>
               <CardContent className="space-y-4 p-5">
@@ -52,36 +52,30 @@ export function HeroSection() {
                   <div className="rounded-lg border border-border/50 bg-surface/65 p-3">
                     <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                       <Activity className="h-3.5 w-3.5 text-primary/80" />
-                      Operación diaria
+                      {home.systemUi.dailyOpsLabel}
                     </p>
-                    <p className="mt-2 text-sm font-semibold text-foreground">Procesos organizados</p>
+                    <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.dailyOpsValue}</p>
                   </div>
                   <div className="rounded-lg border border-border/50 bg-surface/65 p-3">
                     <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                       <Settings2 className="h-3.5 w-3.5 text-primary/80" />
-                      Automatización
+                      {home.systemUi.automationLabel}
                     </p>
-                    <p className="mt-2 text-sm font-semibold text-foreground">Menos trabajo manual</p>
+                    <p className="mt-2 text-sm font-semibold text-foreground">{home.systemUi.automationValue}</p>
                   </div>
                 </div>
                 <div className="rounded-lg border border-border/50 bg-surface/65 p-4">
                   <p className="flex items-center gap-2 text-xs font-medium text-muted-foreground">
                     <GitBranch className="h-3.5 w-3.5 text-primary/80" />
-                    Flujo conectado
+                    {home.systemUi.flowLabel}
                   </p>
                   <ul className="mt-3 space-y-2 text-sm text-foreground">
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary/80" />
-                      Datos centralizados
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary/80" />
-                      Seguimiento en tiempo real
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <CheckCircle2 className="h-4 w-4 text-primary/80" />
-                      Decisiones con contexto
-                    </li>
+                    {home.systemUi.flowItems.map((item) => (
+                      <li key={item} className="flex items-center gap-2">
+                        <CheckCircle2 className="h-4 w-4 text-primary/80" />
+                        {item}
+                      </li>
+                    ))}
                   </ul>
                 </div>
               </CardContent>

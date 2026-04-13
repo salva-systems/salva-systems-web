@@ -49,6 +49,15 @@ type LocaleContent = {
     primaryCta: string;
     secondaryCta: string;
     trust: string;
+    systemUi: {
+      badge: string;
+      dailyOpsLabel: string;
+      dailyOpsValue: string;
+      automationLabel: string;
+      automationValue: string;
+      flowLabel: string;
+      flowItems: string[];
+    };
   };
   services: {
     headline: string;
@@ -124,6 +133,19 @@ const content: Record<Locale, LocaleContent> = {
       primaryCta: "Analizar mi negocio",
       secondaryCta: "Hablar por WhatsApp",
       trust: "Basado en proyectos reales · Trabajo directo · Enfoque práctico",
+      systemUi: {
+        badge: "System UI · Operación en control",
+        dailyOpsLabel: "Operación diaria",
+        dailyOpsValue: "Procesos organizados",
+        automationLabel: "Automatización",
+        automationValue: "Menos trabajo manual",
+        flowLabel: "Flujo conectado",
+        flowItems: [
+          "Datos centralizados",
+          "Seguimiento en tiempo real",
+          "Decisiones con contexto",
+        ],
+      },
     },
     services: {
       headline: "Servicios para acelerar entrega sin deuda técnica",
@@ -292,6 +314,15 @@ const content: Record<Locale, LocaleContent> = {
       primaryCta: "Request assessment",
       secondaryCta: "Chat on WhatsApp",
       trust: "Based on real projects · Direct collaboration · Practical execution",
+      systemUi: {
+        badge: "System UI · Operations in control",
+        dailyOpsLabel: "Daily operations",
+        dailyOpsValue: "Organized workflows",
+        automationLabel: "Automation",
+        automationValue: "Less manual work",
+        flowLabel: "Connected flow",
+        flowItems: ["Centralized data", "Real-time tracking", "Decisions with context"],
+      },
     },
     services: {
       headline: "Services that increase delivery speed without technical debt",
