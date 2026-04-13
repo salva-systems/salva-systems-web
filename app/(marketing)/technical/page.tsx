@@ -5,7 +5,7 @@ import { buildMetadata, getContent } from "@/lib/content/site";
 
 const { technical } = getContent();
 
-export const metadata: Metadata = buildMetadata("Base técnica", technical.intro);
+export const metadata: Metadata = buildMetadata("Base tÃ©cnica", technical.intro);
 
 export default function TechnicalPage() {
   return <TechnicalSection />;

@@ -5,7 +5,7 @@ import { buildMetadata, getContent } from "@/lib/content/site";
 
 const { cases } = getContent();
 
-export const metadata: Metadata = buildMetadata("Casos", cases.intro);
+export const metadata: Metadata = buildMetadata("Casos", cases.intro, "/cases");
 
 export default function CasesPage() {
   return <CasesSection />;

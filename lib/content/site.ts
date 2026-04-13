@@ -909,7 +909,7 @@ export function getContent(locale: Locale = DEFAULT_LOCALE) {
   return content[locale];
 }
 
-export function buildMetadata(title: string, description: string): Metadata {
+export function buildMetadata(title: string, description: string, pathname: string = "/"): Metadata {
   return {
     title,
     description,
@@ -919,10 +919,10 @@ export function buildMetadata(title: string, description: string): Metadata {
       siteName: COMPANY.name,
       locale: "es_ES",
       type: "website",
-      url: COMPANY.domain,
+      url: new URL(pathname, COMPANY.domain).toString(),
     },
     alternates: {
-      canonical: COMPANY.domain,
+      canonical: new URL(pathname, COMPANY.domain).toString(),
       languages: {
         es: `${COMPANY.domain}`,
         en: `${COMPANY.domain}/en`,

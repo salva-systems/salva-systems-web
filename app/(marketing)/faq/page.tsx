@@ -5,7 +5,7 @@ import { buildMetadata, getContent } from "@/lib/content/site";
 
 const { faq } = getContent();
 
-export const metadata: Metadata = buildMetadata("FAQ", faq.intro);
+export const metadata: Metadata = buildMetadata("FAQ", faq.intro, "/faq");
 
 export default function FaqPage() {
   return <FaqSection />;

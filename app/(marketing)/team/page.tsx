@@ -5,7 +5,7 @@ import { buildMetadata, getContent } from "@/lib/content/site";
 
 const { team } = getContent();
 
-export const metadata: Metadata = buildMetadata("Equipo", team.intro);
+export const metadata: Metadata = buildMetadata("Equipo", team.intro, "/team");
 
 export default function TeamPage() {
   return <TeamSection />;
