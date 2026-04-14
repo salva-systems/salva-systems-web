@@ -38,13 +38,17 @@ export function TeamSection() {
     <>
       <section>
         <Container className="pt-4 pb-8">
-          <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
-            Equipo
-          </p>
-          <h1 className="mt-3 max-w-4xl text-display-2 text-foreground sm:text-display-1">
-            Equipo con ejecución técnica real.
-          </h1>
-          <p className="mt-4 max-w-3xl text-body text-muted-foreground">{team.intro}</p>
+          <MotionWrapper className="space-y-4">
+            <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+              Equipo
+            </p>
+            <h1 className="max-w-4xl text-display-2 text-foreground sm:text-display-1">
+              Equipo con ejecución técnica real.
+            </h1>
+            <p className="max-w-3xl text-body text-muted-foreground">
+              {team.intro}
+            </p>
+          </MotionWrapper>
         </Container>
       </section>
 

@@ -162,15 +162,19 @@ export function CasesSection() {
     <>
       <section>
         <Container className="pt-4 pb-8">
-          <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
-            Casos de estudio
-          </p>
-          <h1 className="mt-3 max-w-4xl text-display-2 text-foreground sm:text-display-1">
-            Sistemas construidos en contexto real.
-          </h1>
-          <p className="mt-4 max-w-3xl text-body text-muted-foreground">
-            Trabajo en contexto corporativo y académico, documentado con enfoque operativo.
-          </p>
+          <MotionWrapper className="space-y-4">
+            <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+              Casos de estudio
+            </p>
+            <h1 className="max-w-4xl text-display-2 text-foreground sm:text-display-1">
+              Sistemas construidos en contexto real.
+            </h1>
+            <p className="max-w-3xl text-body text-muted-foreground">
+              Trabajo en contexto corporativo y académico, documentado con enfoque
+              operativo: problema real, sistema implementado, rol definido y
+              resultados verificables.
+            </p>
+          </MotionWrapper>
         </Container>
       </section>
 
