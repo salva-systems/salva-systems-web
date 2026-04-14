@@ -38,8 +38,13 @@ export function TeamSection() {
     <>
       <section>
         <Container className="pt-4 pb-8">
-          <h1 className="text-4xl font-semibold text-foreground">Equipo</h1>
-          <p className="mt-4 max-w-3xl text-muted-foreground">{team.intro}</p>
+          <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+            Equipo
+          </p>
+          <h1 className="mt-3 max-w-4xl text-display-2 text-foreground sm:text-display-1">
+            Equipo con ejecución técnica real.
+          </h1>
+          <p className="mt-4 max-w-3xl text-body text-muted-foreground">{team.intro}</p>
         </Container>
       </section>
 
@@ -51,7 +56,7 @@ export function TeamSection() {
 
               return (
                 <MotionWrapper key={member.name} delay={index * 0.08}>
-                  <div className="rounded-xl border border-border/60 bg-surface/55 p-6">
+                  <div className="rounded-2xl border border-border/60 bg-[linear-gradient(180deg,rgba(10,16,28,0.88),rgba(10,16,28,0.72))] p-6 shadow-[0_12px_32px_rgba(2,8,20,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_18px_40px_rgba(2,8,20,0.28)]">
                     <div className="overflow-hidden rounded-xl border border-primary/20 bg-primary/8">
                       {teamImage ? (
                         <Image
@@ -74,9 +79,11 @@ export function TeamSection() {
                     <p className="mt-5 text-lg font-semibold text-foreground">
                       {member.name}
                     </p>
-                    <p className="mt-2 text-sm text-primary/80">{member.role}</p>
+                    <p className="mt-2 text-sm font-medium text-primary/80">
+                      {member.role}
+                    </p>
 
-                    <p className="mt-4 text-sm text-muted-foreground">
+                    <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                       {member.profile}
                     </p>
 

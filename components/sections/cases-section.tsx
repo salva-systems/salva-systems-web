@@ -82,8 +82,8 @@ function CaseCard({
   const Icon = CASE_ICONS[index] ?? CASE_ICONS[0];
 
   return (
-    <div className="rounded-xl border border-border/60 bg-surface/55 p-6">
-      <div className="rounded-lg border border-primary/20 bg-primary/8 p-3">
+    <div className="rounded-2xl border border-border/60 bg-[linear-gradient(180deg,rgba(10,16,28,0.88),rgba(10,16,28,0.72))] p-6 shadow-[0_12px_32px_rgba(2,8,20,0.2)] transition-all duration-300 hover:-translate-y-1 hover:border-primary/35 hover:shadow-[0_18px_40px_rgba(2,8,20,0.28)]">
+      <div className="rounded-xl border border-primary/20 bg-primary/8 p-3">
         <div className="mb-3 flex items-center justify-between">
           <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">
             {item.visual.heading}
@@ -103,42 +103,54 @@ function CaseCard({
         </div>
       </div>
 
-      <h2 className="mt-5 text-lg font-semibold text-foreground">{item.title}</h2>
+      <h2 className="mt-5 text-lg font-semibold leading-snug text-foreground">
+        {item.title}
+      </h2>
 
       <div className="mt-4 space-y-3">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
             Contexto
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">{item.context}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {item.context}
+          </p>
         </div>
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
             Problema
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">{item.problem}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {item.problem}
+          </p>
         </div>
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
             Enfoque
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">{item.approach}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {item.approach}
+          </p>
         </div>
 
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
             Rol
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">{item.role}</p>
+          <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+            {item.role}
+          </p>
         </div>
 
-        <div>
+        <div className="border-t border-border/35 pt-3">
           <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary/75">
             Resultado
           </p>
-          <p className="mt-1 text-sm text-muted-foreground">{item.outcome}</p>
+          <p className="mt-1 text-sm leading-relaxed text-foreground/90">
+            {item.outcome}
+          </p>
         </div>
       </div>
     </div>
@@ -150,8 +162,13 @@ export function CasesSection() {
     <>
       <section>
         <Container className="pt-4 pb-8">
-          <h1 className="text-4xl font-semibold text-foreground">Casos de estudio</h1>
-          <p className="mt-4 max-w-3xl text-muted-foreground">
+          <p className="text-small font-medium uppercase tracking-[0.18em] text-primary/85">
+            Casos de estudio
+          </p>
+          <h1 className="mt-3 max-w-4xl text-display-2 text-foreground sm:text-display-1">
+            Sistemas construidos en contexto real.
+          </h1>
+          <p className="mt-4 max-w-3xl text-body text-muted-foreground">
             Trabajo en contexto corporativo y académico, documentado con enfoque operativo.
           </p>
         </Container>
