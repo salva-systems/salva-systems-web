@@ -1,3 +1,5 @@
+import { Building2, Factory, Microscope } from "lucide-react";
+
 import { Container } from "@/components/layout/container";
 import { MotionWrapper } from "@/components/shared/motion-wrapper";
 
@@ -8,6 +10,10 @@ type CaseStudyItem = {
   approach: string;
   role: string;
   outcome: string;
+  visual: {
+    heading: string;
+    pillars: string[];
+  };
 };
 
 const CASE_STUDIES: CaseStudyItem[] = [
@@ -23,6 +29,10 @@ const CASE_STUDIES: CaseStudyItem[] = [
       "Rol principal en arquitectura de base de datos, estructura de información y coordinación técnica del desarrollo en equipo.",
     outcome:
       "Se consolidó la operación en un solo sistema, reduciendo fricción de seguimiento y mejorando la claridad de cumplimiento.",
+    visual: {
+      heading: "Tablero interno",
+      pillars: ["Capacitación", "Evaluación", "Documentación"],
+    },
   },
   {
     title: "CEMEX · Sistemas de datos para supply chain global",
@@ -36,6 +46,10 @@ const CASE_STUDIES: CaseStudyItem[] = [
       "Contribución técnica en desarrollo de pipelines, modelado de datos y mejora de procesos analíticos dentro de equipos globales.",
     outcome:
       "Se fortalecieron capacidades de datos para operación logística internacional, con mejor estructura para escalar análisis y decisiones.",
+    visual: {
+      heading: "Pipeline global",
+      pillars: ["Ingesta", "Modelado", "Consumo"],
+    },
   },
   {
     title: "IEEE (NeoGuard) · Monitoreo inteligente neonatal",
@@ -49,13 +63,47 @@ const CASE_STUDIES: CaseStudyItem[] = [
       "Participación directa en diseño e implementación técnica del sistema, en colaboración con equipo multidisciplinario.",
     outcome:
       "El sistema se validó como prototipo funcional y fue aceptado para publicación/presentación en IEEE LARC-LARS 2025.",
+    visual: {
+      heading: "Monitoreo continuo",
+      pillars: ["Sensores", "Alertas", "Dashboard"],
+    },
   },
 ] as const;
 
-function CaseCard({ item }: { item: CaseStudyItem }) {
+const CASE_ICONS = [Building2, Factory, Microscope] as const;
+
+function CaseCard({
+  item,
+  index,
+}: {
+  item: CaseStudyItem;
+  index: number;
+}) {
+  const Icon = CASE_ICONS[index] ?? CASE_ICONS[0];
+
   return (
-    <div className="rounded-xl border border-border/60 p-6">
-      <h2 className="text-lg font-semibold text-foreground">{item.title}</h2>
+    <div className="rounded-xl border border-border/60 bg-surface/55 p-6">
+      <div className="rounded-lg border border-primary/20 bg-primary/8 p-3">
+        <div className="mb-3 flex items-center justify-between">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-primary/80">
+            {item.visual.heading}
+          </p>
+          <Icon className="h-4 w-4 text-primary/80" />
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {item.visual.pillars.map((pillar) => (
+            <span
+              key={pillar}
+              className="rounded-full border border-border/60 bg-background/65 px-2.5 py-1 text-[11px] font-medium text-foreground/90"
+            >
+              {pillar}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <h2 className="mt-5 text-lg font-semibold text-foreground">{item.title}</h2>
 
       <div className="mt-4 space-y-3">
         <div>
@@ -114,7 +162,7 @@ export function CasesSection() {
           <div className="grid gap-5 lg:grid-cols-3">
             {CASE_STUDIES.map((item, index) => (
               <MotionWrapper key={item.title} delay={index * 0.08}>
-                <CaseCard item={item} />
+                <CaseCard item={item} index={index} />
               </MotionWrapper>
             ))}
           </div>
