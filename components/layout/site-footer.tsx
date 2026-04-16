@@ -11,6 +11,16 @@ const LEGAL_LINKS = [
   { href: "/pagos-y-facturacion", label: "Pagos y Facturación" },
 ] as const;
 
+const SOCIAL_LINKS = [
+  { href: "https://www.linkedin.com/company/salva-systems/", label: "LinkedIn" },
+  { href: "https://www.instagram.com/salvasystems/", label: "Instagram" },
+  { href: "https://www.facebook.com/SalvaSystems/", label: "Facebook" },
+  {
+    href: "https://wa.me/528333674769?text=Hola%2C%20me%20interesa%20analizar%20mi%20negocio%20con%20Salva%20Systems.%20Quisiera%20conocer%20qu%C3%A9%20tipo%20de%20sistema%20o%20soluci%C3%B3n%20digital%20podr%C3%ADa%20ayudarme%20a%20ordenar%20mejor%20mi%20operaci%C3%B3n.",
+    label: "WhatsApp",
+  },
+] as const;
+
 export function SiteFooter() {
   return (
     <footer className="relative border-t border-border/35 bg-surface/55 backdrop-blur-xl">
@@ -113,11 +123,31 @@ export function SiteFooter() {
               <li>{COMPANY.city}</li>
             </ul>
           </div>
+
+          <div className="space-y-3">
+            <p className="font-medium text-foreground">Redes</p>
+            <ul className="space-y-2 text-muted-foreground">
+              {SOCIAL_LINKS.map((item) => (
+                <li key={item.href}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="transition-colors hover:text-primary-strong"
+                  >
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
       </Container>
 
       <Container className="flex flex-col gap-3 border-t border-border/30 py-5 text-small text-muted-foreground md:flex-row md:items-center md:justify-between">
-        <p>© {new Date().getFullYear()} {COMPANY.name}. Todos los derechos reservados.</p>
+        <p>
+          © {new Date().getFullYear()} {COMPANY.name}. Todos los derechos reservados.
+        </p>
         <p>Consultoría tecnológica, sistemas digitales y operación con criterio.</p>
       </Container>
     </footer>
