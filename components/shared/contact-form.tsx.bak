@@ -33,7 +33,6 @@ type ContactFormProps = {
 
 export function ContactForm({ copy }: ContactFormProps) {
   const [submitted, setSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState<string | null>(null);
   const whatsappUrl = COMPANY.whatsappUrl;
 
   const formSchema = z.object({
@@ -60,29 +59,8 @@ export function ContactForm({ copy }: ContactFormProps) {
     },
   });
 
-  const onSubmit = async (values: ContactValues) => {
-    setSubmitError(null);
-    setSubmitted(false);
-
-    const response = await fetch("/api/leads", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        ...values,
-        locale: "es",
-        pagePath: "/contact",
-      }),
-    });
-
-    const result = await response.json();
-
-    if (!response.ok || !result.ok) {
-      setSubmitError("No pudimos guardar tu solicitud. Inténtalo de nuevo.");
-      return;
-    }
-
+  const onSubmit = async () => {
+    await new Promise((resolve) => setTimeout(resolve, 450));
     setSubmitted(true);
     reset();
   };
@@ -127,14 +105,8 @@ export function ContactForm({ copy }: ContactFormProps) {
 
           <Button type="submit" className="w-full sm:w-auto" disabled={isSubmitting}>
             <SendHorizontal className="mr-2 h-4 w-4" />
-            {isSubmitting ? "Enviando..." : copy.submit}
+            {copy.submit}
           </Button>
-
-          {submitError ? (
-            <div className="rounded-lg border border-red-500/25 bg-red-500/10 p-4">
-              <p className="text-sm text-red-300">{submitError}</p>
-            </div>
-          ) : null}
 
           {submitted ? (
             <div className="space-y-3 rounded-lg border border-primary/25 bg-primary/10 p-4">
