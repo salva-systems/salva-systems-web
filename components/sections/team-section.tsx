@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Container } from "@/components/layout/container";
 import { MotionWrapper } from "@/components/shared/motion-wrapper";
@@ -90,6 +91,43 @@ export function TeamSection() {
                     <p className="mt-4 text-sm leading-relaxed text-muted-foreground">
                       {member.profile}
                     </p>
+
+                    {member.linkedinUrl || member.githubUrl || member.cvUrl ? (
+                      <div className="mt-4 flex flex-wrap gap-2">
+                        {member.linkedinUrl ? (
+                          <Link
+                            href={member.linkedinUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-[11px] font-medium text-primary/90 transition-all hover:border-primary/40 hover:bg-primary/15"
+                          >
+                            LinkedIn
+                          </Link>
+                        ) : null}
+
+                        {member.githubUrl ? (
+                          <Link
+                            href={member.githubUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center rounded-full border border-primary/25 bg-primary/10 px-3 py-1.5 text-[11px] font-medium text-primary/90 transition-all hover:border-primary/40 hover:bg-primary/15"
+                          >
+                            GitHub
+                          </Link>
+                        ) : null}
+
+                        {member.cvUrl ? (
+                          <Link
+                            href={member.cvUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center rounded-full border border-border/70 bg-surface/70 px-3 py-1.5 text-[11px] font-medium text-muted-foreground transition-all hover:border-border hover:text-foreground"
+                          >
+                            Ver CV
+                          </Link>
+                        ) : null}
+                      </div>
+                    ) : null}
 
                     <div className="mt-4 flex flex-wrap gap-2">
                       {member.credibility.map((item) => (

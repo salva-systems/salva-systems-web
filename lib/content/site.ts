@@ -37,6 +37,9 @@ type TeamMember = {
   credibility: string[];
   credentials?: string[];
   subtext: string;
+  linkedinUrl?: string;
+  githubUrl?: string;
+  cvUrl?: string;
 };
 
 type TechnicalItem = {
@@ -229,19 +232,23 @@ const content: Record<Locale, LocaleContent> = {
       items: [
         {
           title: "Todo vive en Excel",
-          detail: "Versiones distintas, datos duplicados y dificultad para saber cuál es el archivo correcto.",
+          detail:
+            "Versiones distintas, datos duplicados y dificultad para saber cuál es el archivo correcto.",
         },
         {
           title: "Pedidos por WhatsApp",
-          detail: "La información llega rápido, pero se pierde contexto y el seguimiento depende de cada persona.",
+          detail:
+            "La información llega rápido, pero se pierde contexto y el seguimiento depende de cada persona.",
         },
         {
           title: "Procesos manuales",
-          detail: "Copiar y pegar entre herramientas consume tiempo y aumenta errores en tareas repetitivas.",
+          detail:
+            "Copiar y pegar entre herramientas consume tiempo y aumenta errores en tareas repetitivas.",
         },
         {
           title: "Falta de control",
-          detail: "Sin trazabilidad ni estado en tiempo real, decidir se vuelve más lento y más incierto.",
+          detail:
+            "Sin trazabilidad ni estado en tiempo real, decidir se vuelve más lento y más incierto.",
         },
       ],
       consequence: {
@@ -323,7 +330,8 @@ const content: Record<Locale, LocaleContent> = {
       items: [
         {
           title: "Presencia Digital",
-          solves: "Te da una base profesional para comunicar qué haces, generar confianza y captar oportunidades.",
+          solves:
+            "Te da una base profesional para comunicar qué haces, generar confianza y captar oportunidades.",
           includes:
             "Sitio web orientado a conversión, mensaje claro de oferta, formularios de contacto y analítica básica.",
           forWho:
@@ -331,7 +339,8 @@ const content: Record<Locale, LocaleContent> = {
         },
         {
           title: "Sistema Operativo",
-          solves: "Ordena la operación diaria para que el trabajo no dependa de Excel, WhatsApp y seguimiento manual.",
+          solves:
+            "Ordena la operación diaria para que el trabajo no dependa de Excel, WhatsApp y seguimiento manual.",
           includes:
             "Flujos de trabajo centralizados, panel operativo, trazabilidad de estados e integraciones clave.",
           forWho:
@@ -339,7 +348,8 @@ const content: Record<Locale, LocaleContent> = {
         },
         {
           title: "Sistema de Crecimiento",
-          solves: "Convierte la operación en una base clara para crecer con información en tiempo real.",
+          solves:
+            "Convierte la operación en una base clara para crecer con información en tiempo real.",
           includes:
             "Automatizaciones, métricas de rendimiento, reportes accionables y mejora continua.",
           forWho:
@@ -392,6 +402,9 @@ const content: Record<Locale, LocaleContent> = {
             "English · C1",
           ],
           subtext: "Ingeniería en Tecnologías Computacionales · Tecnológico de Monterrey",
+          linkedinUrl: "https://www.linkedin.com/in/carlos-sanchez-gutierrez-tec",
+          githubUrl: "https://github.com/CarlosSanchezGutierrez",
+          cvUrl: "/cv/carlos-sanchez-gutierrez-cv.pdf",
         },
         {
           name: "Lehi Salvador Rangel Cárdenas",
@@ -418,8 +431,10 @@ const content: Record<Locale, LocaleContent> = {
             "LARC & LARS 2025 · Competencias internacionales",
             "IPECO · Maintenance Intern",
           ],
-          credentials: [],
+          credentials: ["Técnico Analista Programador · ICEST"],
           subtext: "Ingeniería en Mecatrónica · Tecnológico de Monterrey",
+          linkedinUrl: "https://www.linkedin.com/in/maximiliano-lozano-suarez-161743339/",
+          cvUrl: "/cv/maximiliano-lozano-suarez-cv.pdf",
         },
       ],
     },
@@ -496,8 +511,7 @@ const content: Record<Locale, LocaleContent> = {
         },
         {
           question: "¿Cuánto tiempo toma?",
-          answer:
-            "Desde semanas hasta meses, dependiendo del nivel de solución.",
+          answer: "Desde semanas hasta meses, dependiendo del nivel de solución.",
         },
         {
           question: "¿Trabajan con negocios pequeños?",
@@ -535,7 +549,11 @@ const content: Record<Locale, LocaleContent> = {
     finalCta: {
       title: "La valoración es gratuita.",
       subtitle: "En esta llamada entendemos tu negocio y te proponemos una solución clara.",
-      steps: ["Nos cuentas tu situación", "Detectamos problemas", "Te proponemos un sistema"],
+      steps: [
+        "Nos cuentas tu situación",
+        "Detectamos problemas",
+        "Te proponemos un sistema",
+      ],
       primaryCta: "Analizar mi negocio",
       secondaryCta: "Hablar por WhatsApp",
     },
@@ -580,25 +598,30 @@ const content: Record<Locale, LocaleContent> = {
       },
     },
     problem: {
-      headline: "If you run operations with Excel, WhatsApp, and manual work, you’re not alone.",
+      headline:
+        "If you run operations with Excel, WhatsApp, and manual work, you’re not alone.",
       intro:
         "It is a common stage when the business grows faster than processes. The risk starts when visibility falls behind.",
       items: [
         {
           title: "Everything lives in spreadsheets",
-          detail: "Multiple versions, duplicated data, and no clear source of truth for day-to-day decisions.",
+          detail:
+            "Multiple versions, duplicated data, and no clear source of truth for day-to-day decisions.",
         },
         {
           title: "Orders managed in WhatsApp",
-          detail: "Communication is quick, but context gets lost and follow-up depends on individual effort.",
+          detail:
+            "Communication is quick, but context gets lost and follow-up depends on individual effort.",
         },
         {
           title: "Manual workflows",
-          detail: "Copying data between tools slows teams down and creates recurring operational mistakes.",
+          detail:
+            "Copying data between tools slows teams down and creates recurring operational mistakes.",
         },
         {
           title: "Lack of control",
-          detail: "Without traceability and real-time status, prioritization and response become reactive.",
+          detail:
+            "Without traceability and real-time status, prioritization and response become reactive.",
         },
       ],
       consequence: {
@@ -752,7 +775,11 @@ const content: Record<Locale, LocaleContent> = {
             "Scrum Master (CSM) · Product Owner",
             "English · C1",
           ],
-          subtext: "B.S. in Computer Technologies Engineering · Tecnológico de Monterrey",
+          subtext:
+            "B.S. in Computer Technologies Engineering · Tecnológico de Monterrey",
+          linkedinUrl: "https://www.linkedin.com/in/carlos-sanchez-gutierrez-tec",
+          githubUrl: "https://github.com/CarlosSanchezGutierrez",
+          cvUrl: "/cv/carlos-sanchez-gutierrez-cv.pdf",
         },
         {
           name: "Lehi Salvador Rangel Cárdenas",
@@ -779,8 +806,10 @@ const content: Record<Locale, LocaleContent> = {
             "LARC & LARS 2025 · International competitions",
             "IPECO · Maintenance Intern",
           ],
-          credentials: [],
+          credentials: ["Technical Programmer Analyst · ICEST"],
           subtext: "B.S. in Mechatronics Engineering · Tecnológico de Monterrey",
+          linkedinUrl: "https://www.linkedin.com/in/maximiliano-lozano-suarez-161743339/",
+          cvUrl: "/cv/maximiliano-lozano-suarez-cv.pdf",
         },
       ],
     },
@@ -857,8 +886,7 @@ const content: Record<Locale, LocaleContent> = {
         },
         {
           question: "How long does it take?",
-          answer:
-            "From weeks to months, depending on the level of solution.",
+          answer: "From weeks to months, depending on the level of solution.",
         },
         {
           question: "Do you work with small businesses?",
